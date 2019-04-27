@@ -10,7 +10,7 @@ network.
 
 ## Preview
 
-https://gatsby-forty.surge.sh
+https://gateway.ipfs.io/ipfs/QmYLRXgCA5YnSQ83NF4kS4QD3YkZZP2wqRfQXFsYZ2ocLi
 
 ## Installation
 
