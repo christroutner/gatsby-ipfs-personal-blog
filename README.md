@@ -1,10 +1,12 @@
-# gatsby-starter-forty
-
-**This is a starter for Gatsby.js V2.**
-
-**The older V1 version of this starter can be found on the v1 branch**
+# gatsby-ipfs-boilerplate
 
 Gatsby.js V2 starter based on the Forty site template, designed by HTML5 UP. Check out https://codebushi.com/gatsby-starters/ for more Gatsby starters and templates.
+
+This is a Gatsby starter site. It is originally forked from
+the [Fourty starter by HTML5 UP](https://github.com/codebushi/gatsby-starter-forty)
+starter site. The [gatsby-ipfs-plugin](https://github.com/moxystudio/gatsby-plugin-ipfs)
+has been added to allow the site to be uploaded and served by the [IPFS](https://ipfs.io)
+network.
 
 ## Preview
 
@@ -14,7 +16,7 @@ https://gatsby-forty.surge.sh
 
 Install this starter (assuming Gatsby is installed) by running from your CLI:
 <br/>
-`gatsby new gatsby-starter-forty https://github.com/codebushi/gatsby-starter-forty`
+`gatsby new gatsby-ipfs-boilerplate https://github.com/christroutner/gatsby-ipfs-boilerplate`
 
 Run `gatsby develop` in the terminal to start the dev site.
 
