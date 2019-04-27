@@ -10,7 +10,7 @@ network.
 
 ## Preview
 
-https://gateway.ipfs.io/ipfs/QmYLRXgCA5YnSQ83NF4kS4QD3YkZZP2wqRfQXFsYZ2ocLi
+https://gateway.ipfs.io/ipfs/QmSZ7yjXkgJAsWDRhpKGHY5NfmvHJsvFs66pJcopNwSnM4
 
 ## Installation
 
