@@ -21,5 +21,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: "./src/data/",
+      },
+    },
+    "gatsby-transformer-json",
   ],
 }
