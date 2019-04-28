@@ -2,6 +2,8 @@
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
+ *
+ * Markdown implementation: https://www.gatsbyjs.org/docs/adding-markdown-pages/
  */
 
 const path = require("path")

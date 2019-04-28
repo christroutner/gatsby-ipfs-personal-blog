@@ -1,3 +1,8 @@
+/*
+  Markdown implementation:
+  https://www.gatsbyjs.org/docs/adding-markdown-pages/
+*/
+
 import React from "react"
 import { graphql } from "gatsby"
 
