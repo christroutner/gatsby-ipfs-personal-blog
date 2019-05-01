@@ -1,6 +1,8 @@
 /*
   Markdown implementation:
   https://www.gatsbyjs.org/docs/adding-markdown-pages/
+
+  This template is used to render the post.
 */
 
 import React from "react"

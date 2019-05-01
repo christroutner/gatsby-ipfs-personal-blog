@@ -3,12 +3,12 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  *
- * Markdown implementation: https://www.gatsbyjs.org/docs/adding-markdown-pages/
+ * Markdown implementation:
+ *  https://www.gatsbyjs.org/docs/adding-markdown-pages/
  */
 
 const path = require("path")
 
-// You can delete this file if you're not using it
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 

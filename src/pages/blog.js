@@ -12,8 +12,10 @@ const IndexPage = ({
     allMarkdownRemark: { edges },
   },
 }) => {
+  console.log(`edges: ${JSON.stringify(edges,null,2)}`)
+
   const Posts = edges
-    // You can filter your posts based on some criteria
+    // Filter Blog posts. Posts have dates. Research pages don't.
     .filter(edge => !!edge.node.frontmatter.date)
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
 
