@@ -1,6 +1,7 @@
 ---
 title: "Donec diam"
-root: "/researc"
+root: "/research"
+parent: "Research Item 2"
 path: "/research/research-item-2/donec-diam"
 ---
 

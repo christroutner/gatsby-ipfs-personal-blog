@@ -1,6 +1,7 @@
 ---
 title: "Fusce"
 root: "/research"
+parent: "Research Item 3"
 path: "/research/research-item-3/fusce"
 ---
 

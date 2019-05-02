@@ -1,6 +1,7 @@
 ---
 title: "Nunc diam"
 root: "/research"
+parent: "Research Item 1"
 path: "/research/research-item-1/nunc-diam"
 ---
 

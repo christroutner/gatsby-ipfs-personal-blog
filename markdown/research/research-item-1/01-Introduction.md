@@ -1,6 +1,7 @@
 ---
 title: "Condimentum"
 root: "/research"
+parent: "Research Item 1"
 path: "/research/research-item-1/condimentum"
 ---
 

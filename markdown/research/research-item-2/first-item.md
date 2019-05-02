@@ -1,6 +1,7 @@
 ---
 title: "Curabitur"
 root: "/research"
+parent: "Research Item 2"
 path: "/research/research-item-2/wikileaks"
 ---
 

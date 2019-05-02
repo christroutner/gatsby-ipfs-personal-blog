@@ -14,7 +14,7 @@ const Menu = (props) => (
                 <li><Link onClick={props.onToggleMenu} to="/elements">Elements</Link></li>
             </ul>
             <ul className="actions vertical">
-                <li><Link to="/research" className="button special fit">Blog</Link></li>
+                <li><Link to="/research" className="button special fit">Research</Link></li>
                 <li><a href="#" className="button fit">Log In</a></li>
             </ul>
         </div>

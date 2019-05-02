@@ -6,8 +6,10 @@
 import React from 'react'
 import PostLink from '../post-link'
 import { StaticQuery, graphql } from 'gatsby'
+import ParentLink from './research-parent-link'
 
 // Query markdown
+// Dev Note: This can not be moved into the component Class.
 const componentQuery = graphql`
   query {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
@@ -16,10 +18,13 @@ const componentQuery = graphql`
           id
           excerpt(pruneLength: 250)
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            path
             title
+            date
+            root
+            path
+            parent
           }
+          fileAbsolutePath
         }
       }
     }
@@ -34,36 +39,46 @@ class LinkList extends React.Component {
 
   // This actually renders the component.
   componentJSX = (data) => {
-    console.log(`data: ${JSON.stringify(data,null,2)}`)
+    //console.log(`data: ${JSON.stringify(data,null,2)}`)
 
     const edges = data.allMarkdownRemark.edges
 
-    const Posts = edges
-      // Filter Blog posts. Posts have dates. Research pages don't.
-      .filter(edge => !edge.node.frontmatter.date)
-      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+    // Filter Blog posts. Posts have dates. Research pages don't.
+    const researchPosts = edges.filter(edge => !edge.node.frontmatter.date)
+    //console.log(`researchPosts: ${JSON.stringify(researchPosts,null,2)}`)
+
+    const parentItems = this.getResearchParents(researchPosts)
+    console.log(`parentItems: ${JSON.stringify(parentItems,null,2)}`)
+
+    const Posts = parentItems
+      .map(parent => <ParentLink key={parent} parent={parent} />)
 
     return <div>{Posts}</div>
   }
 
   render() {
     return(
-      <StaticQuery query={componentQuery} render={this.componentJSX} />
+      <ul>
+        <StaticQuery query={componentQuery} render={this.componentJSX} />
+      </ul>
     )
   }
-}
-/*
-const LinkList = ({ data }) => {
-  console.log(`data: ${JSON.stringify(data,null,2)}`)
-  //console.log(`edges: ${JSON.stringify(edges,null,2)}`)
 
-  const Posts = edges
-    // Filter Blog posts. Posts have dates. Research pages don't.
-    .filter(edge => !!edge.node.frontmatter.date)
-    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+  // Given an array of research items, it returns an array of research topic
+  // parents.
+  getResearchParents(items) {
+    const researchParents = []
 
-  return <div>{Posts}</div>
+    for(let i=0; i < items.length; i++) {
+      const thisItem = items[i].node.frontmatter
+      const thisParent = thisItem.parent
+
+      if(researchParents.indexOf(thisParent) === -1)
+        researchParents.push(thisParent)
+    }
+
+    return researchParents
+  }
 }
-*/
 
 export default LinkList
