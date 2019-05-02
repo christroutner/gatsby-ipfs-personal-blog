@@ -13,10 +13,16 @@ class ParentLink extends React.Component {
     this.edges = props.edges
   }
 
+  async clickHandlerParent(event) {
+    event.preventDefault()
+
+    console.log(`${event.target.dataset.parent} clicked!`)
+  }
+
   render() {
     return (
       <li>
-        <a href="#">{this.parent} </a>
+        <a href="#" data-parent={this.parent} onClick={this.clickHandlerParent}>{this.parent} </a>
         <a href="#" className="icon fa-chevron-left" />
       </li>
     )
