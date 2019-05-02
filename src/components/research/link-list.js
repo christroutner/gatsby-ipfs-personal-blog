@@ -7,6 +7,7 @@ import React from 'react'
 import PostLink from '../post-link'
 import { StaticQuery, graphql } from 'gatsby'
 import ParentLink from './research-parent-link'
+import Collapsible from 'react-collapsible'
 
 // Query markdown
 // Dev Note: This can not be moved into the component Class.
@@ -31,33 +32,50 @@ const componentQuery = graphql`
   }
 `
 
-
 class LinkList extends React.Component {
   constructor(props) {
     super(props)
   }
 
   // This actually renders the component.
-  componentJSX = (data) => {
+  componentJSX = data => {
     //console.log(`data: ${JSON.stringify(data,null,2)}`)
 
     const edges = data.allMarkdownRemark.edges
 
     // Filter Blog posts. Posts have dates. Research pages don't.
-    const researchPosts = edges.filter(edge => !edge.node.frontmatter.date)
-    //console.log(`researchPosts: ${JSON.stringify(researchPosts,null,2)}`)
+    const researchArticles = edges.filter(edge => !edge.node.frontmatter.date)
+    //console.log(`researchPosts: ${JSON.stringify(researchArticles,null,2)}`)
 
-    const parentItems = this.getResearchParents(researchPosts)
+    // Generate an array of research parents.
+    const parentTopics = this.getResearchParents(researchArticles)
     //console.log(`parentItems: ${JSON.stringify(parentItems,null,2)}`)
 
-    const Posts = parentItems
-      .map(parent => <ParentLink key={parent} parent={parent} edges={researchPosts} />)
+    // For each parent, create a list of links.
+    const linkObjs = this.generateLinks(parentTopics, researchArticles)
 
-    return <div>{Posts}</div>
+    const ResearchParents = parentTopics.map((parent, index) => {
+      console.log(`index: ${index}`)
+
+      return (
+        <Collapsible key={parent} trigger={parent}>
+          <p>
+            This is the collapsible content. It can be any element or React
+            component you like.
+          </p>
+          <p>
+            It can even be another Collapsible component. Check out the next
+            section!
+          </p>
+        </Collapsible>
+      )
+    })
+
+    return <div>{ResearchParents}</div>
   }
 
   render() {
-    return(
+    return (
       <ul>
         <StaticQuery query={componentQuery} render={this.componentJSX} />
       </ul>
@@ -69,15 +87,34 @@ class LinkList extends React.Component {
   getResearchParents(items) {
     const researchParents = []
 
-    for(let i=0; i < items.length; i++) {
+    for (let i = 0; i < items.length; i++) {
       const thisItem = items[i].node.frontmatter
       const thisParent = thisItem.parent
 
-      if(researchParents.indexOf(thisParent) === -1)
+      if (researchParents.indexOf(thisParent) === -1)
         researchParents.push(thisParent)
     }
 
     return researchParents
+  }
+
+  // Generate an array of objects with links for the research parents and
+  // individual research articles.
+  generateLinks(parentTopics, researchArticles) {
+    const linkObjs = []
+
+    console.log(`researchArticles: ${JSON.stringify(researchArticles,null,2)}`)
+    console.log(`parentTopics: ${JSON.stringify(parentTopics,null,2)}`)
+
+    // Loop over each research parent.
+    for(let i=0; i < parentTopics.length; i++) {
+      const thisParent = parentTopics[i]
+
+      // Loop over each article
+      for(let j=0; j < researchArticles.length; j++) {
+        const thisArticle = researchArticles[j]
+      }
+    }
   }
 }
 
