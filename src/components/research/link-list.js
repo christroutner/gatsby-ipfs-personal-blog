@@ -48,10 +48,10 @@ class LinkList extends React.Component {
     //console.log(`researchPosts: ${JSON.stringify(researchPosts,null,2)}`)
 
     const parentItems = this.getResearchParents(researchPosts)
-    console.log(`parentItems: ${JSON.stringify(parentItems,null,2)}`)
+    //console.log(`parentItems: ${JSON.stringify(parentItems,null,2)}`)
 
     const Posts = parentItems
-      .map(parent => <ParentLink key={parent} parent={parent} />)
+      .map(parent => <ParentLink key={parent} parent={parent} edges={researchPosts} />)
 
     return <div>{Posts}</div>
   }
