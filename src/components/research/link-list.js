@@ -53,20 +53,14 @@ class LinkList extends React.Component {
 
     // For each parent, create a list of links.
     const linkObjs = this.generateLinks(parentTopics, researchArticles)
+    //console.log(`linkObjs: ${JSON.stringify(linkObjs,null,2)}`)
 
     const ResearchParents = parentTopics.map((parent, index) => {
       console.log(`index: ${index}`)
 
       return (
         <Collapsible key={parent} trigger={parent}>
-          <p>
-            This is the collapsible content. It can be any element or React
-            component you like.
-          </p>
-          <p>
-            It can even be another Collapsible component. Check out the next
-            section!
-          </p>
+          <ul>{linkObjs[index].linkHtml}</ul>
         </Collapsible>
       )
     })
@@ -110,11 +104,28 @@ class LinkList extends React.Component {
     for(let i=0; i < parentTopics.length; i++) {
       const thisParent = parentTopics[i]
 
+      const linkObj = {
+        parent: thisParent,
+        childLinks: [],
+        linkHtml: []
+      }
+
       // Loop over each article
       for(let j=0; j < researchArticles.length; j++) {
         const thisArticle = researchArticles[j]
+
+        if(thisArticle.node.frontmatter.parent === thisParent) {
+          const path = thisArticle.node.frontmatter.path
+          linkObj.childLinks.push(path)
+
+          linkObj.linkHtml.push(<li key={path}><a href="#">{path}</a></li>)
+        }
       }
+
+      linkObjs.push(linkObj)
     }
+
+    return linkObjs
   }
 }
 
