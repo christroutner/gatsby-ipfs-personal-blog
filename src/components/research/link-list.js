@@ -8,6 +8,7 @@ import PostLink from '../post-link'
 import { StaticQuery, graphql } from 'gatsby'
 import ParentLink from './research-parent-link'
 import Collapsible from 'react-collapsible'
+import { Link } from 'gatsby'
 
 // Query markdown
 // Dev Note: This can not be moved into the component Class.
@@ -116,9 +117,11 @@ class LinkList extends React.Component {
 
         if(thisArticle.node.frontmatter.parent === thisParent) {
           const path = thisArticle.node.frontmatter.path
+          const title = thisArticle.node.frontmatter.title
+
           linkObj.childLinks.push(path)
 
-          linkObj.linkHtml.push(<li key={path}><a href="#">{path}</a></li>)
+          linkObj.linkHtml.push(<li key={path}><Link to={path}>{title}</Link></li>)
         }
       }
 
