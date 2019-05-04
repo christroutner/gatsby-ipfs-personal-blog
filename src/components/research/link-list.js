@@ -63,7 +63,7 @@ class LinkList extends React.Component {
     //console.log(`linkObjs: ${JSON.stringify(linkObjs,null,2)}`)
 
     const ResearchParents = parentTopics.map((parent, index) => {
-      console.log(`index: ${index}`)
+      //console.log(`index: ${index}`)
 
       return (
         <StyledCollapsible key={parent}>
@@ -106,8 +106,8 @@ class LinkList extends React.Component {
   generateLinks(parentTopics, researchArticles) {
     const linkObjs = []
 
-    console.log(`researchArticles: ${JSON.stringify(researchArticles,null,2)}`)
-    console.log(`parentTopics: ${JSON.stringify(parentTopics,null,2)}`)
+    //console.log(`researchArticles: ${JSON.stringify(researchArticles,null,2)}`)
+    //console.log(`parentTopics: ${JSON.stringify(parentTopics,null,2)}`)
 
     // Loop over each research parent.
     for(let i=0; i < parentTopics.length; i++) {

@@ -16,7 +16,7 @@ const IndexPage = ({
     allMarkdownRemark: { edges },
   },
 }) => {
-  console.log(`edges: ${JSON.stringify(edges, null, 2)}`)
+  //console.log(`edges: ${JSON.stringify(edges, null, 2)}`)
 
   const Posts = edges
     // Filter Blog posts. Posts have dates. Research pages don't.
