@@ -4,6 +4,9 @@ This is IPFS-based website that I use to maintain a personal blog as well as
 my research notes on different areas of technology like cryptocurrency, tor,
 IPFS, and Bitcoin Cash.
 
+The live version of this site can be viewed here:
+- http://decatur.hopto.org:4102
+
 This website was forked
 from [this IPFS website boilerplate](https://github.com/christroutner/gatsby-ipfs-boilerplate).
 It's intended to work in conjunction with
