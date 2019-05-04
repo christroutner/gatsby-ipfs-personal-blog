@@ -6,14 +6,14 @@ const Footer = (props) => (
     <footer id="footer">
         <div className="inner">
             <ul className="icons">
-                <li><a href="#" className="icon alt fa-twitter"><span className="label">Twitter</span></a></li>
-                <li><a href="#" className="icon alt fa-facebook"><span className="label">Facebook</span></a></li>
-                <li><a href="#" className="icon alt fa-instagram"><span className="label">Instagram</span></a></li>
-                <li><a href="#" className="icon alt fa-github"><span className="label">GitHub</span></a></li>
-                <li><a href="#" className="icon alt fa-linkedin"><span className="label">LinkedIn</span></a></li>
+                <li><a href="https://twitter.com/christroutner" target="_blank" className="icon alt fa-twitter"><span className="label">Twitter</span></a></li>
+                <li><a href="https://memo.cash/profile/1NpYaazpQ26KrMTeFf66zVKy6x9KzcLgTA" target="_blank" className="icon alt fa-money"><span className="label">Memo.cash</span></a></li>
+                <li><a href="https://github.com/christroutner" target="_blank" className="icon alt fa-github"><span className="label">GitHub</span></a></li>
+                <li><a href="https://www.linkedin.com/in/chris-troutner-7332bb8/" target="_blank" className="icon alt fa-linkedin"><span className="label">LinkedIn</span></a></li>
             </ul>
             <ul className="copyright">
-                <li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                <li>Synidicated over <a href="https://ipfs.io" target="_blank">IPFS</a></li>
+                <li>Updates announced on <a href="https://memo.cash/profile/178M7njZV8qHNTwczgfu4f4fGik4tqrSR4" target="_blank">this memo.cash account</a></li>
             </ul>
         </div>
     </footer>

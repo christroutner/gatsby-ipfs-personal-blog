@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby IPFS Boilerplate Starter",
+    title: "Trout's Blog",
     author: "Chris Troutner",
-    description: "A Gatsby.js V2 Starter based on Forty by HTML5 UP"
+    description: "An IPFS-based blog"
   },
   pathPrefix: '__GATSBY_IPFS_PATH_PREFIX__',
   plugins: [
