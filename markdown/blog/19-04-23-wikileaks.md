@@ -1,6 +1,6 @@
 ---
 date: "2019-04-23"
-title: Syndicate Wikileaks
+title: "Syndicate Wikileaks"
 root: "/blog"
 path: "/blog/wikileaks"
 ---
