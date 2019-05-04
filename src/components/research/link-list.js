@@ -9,6 +9,12 @@ import { StaticQuery, graphql } from 'gatsby'
 import ParentLink from './research-parent-link'
 import Collapsible from 'react-collapsible'
 import { Link } from 'gatsby'
+import styled from 'styled-components'
+
+const StyledCollapsible = styled.div`
+  background-color: #8482c426;
+  padding: 15px;
+`
 
 // Query markdown
 // Dev Note: This can not be moved into the component Class.
@@ -60,9 +66,11 @@ class LinkList extends React.Component {
       console.log(`index: ${index}`)
 
       return (
-        <Collapsible key={parent} trigger={parent}>
-          <ul>{linkObjs[index].linkHtml}</ul>
-        </Collapsible>
+        <StyledCollapsible key={parent}>
+          <Collapsible key={parent} trigger={parent}>
+            <ul>{linkObjs[index].linkHtml}</ul>
+          </Collapsible>
+        </StyledCollapsible>
       )
     })
 
