@@ -15,8 +15,6 @@ and syndicating content, and
 this [memo-push](https://github.com/christroutner/memo-push) tool for announcing
 content updates on the Bitcoin Cash blockchain.
 
-Want to start your own website?
-
 - [Here is a non-technical video](https://www.youtube.com/watch?v=RlNVyatwd5M) overview
 of how governments censor content on the internet, and how decentralized publishing
 tools can be used to circumvent it.

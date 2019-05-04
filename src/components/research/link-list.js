@@ -6,7 +6,6 @@
 import React from 'react'
 import PostLink from '../post-link'
 import { StaticQuery, graphql } from 'gatsby'
-import ParentLink from './research-parent-link'
 import Collapsible from 'react-collapsible'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
