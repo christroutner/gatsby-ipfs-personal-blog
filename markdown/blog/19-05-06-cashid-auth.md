@@ -15,4 +15,4 @@ with just two parties: the client (web browser) and the server. In actuality,
 there are three parities involved, just like there would be for single-sign-on
 authentication with Google or Facebook. The relationship looks like this:
 
-![CashID Auth Flowchart](./images/cashid-auth.jpeg)
+![CashID Auth Flowchart](cashid-auth.jpeg 'CashID Auth Flowchart')

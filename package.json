@@ -9,6 +9,8 @@
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.10",
     "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sharp": "^2.0.36",
+    "gatsby-remark-images": "^3.0.11",
     "gatsby-source-filesystem": "^2.0.32",
     "gatsby-transformer-json": "^2.1.11",
     "gatsby-transformer-remark": "^2.3.12",

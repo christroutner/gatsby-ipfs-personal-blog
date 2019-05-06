@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: "Trout's Blog",
-    author: "Chris Troutner",
-    description: "An IPFS-based blog"
+    author: 'Chris Troutner',
+    description: 'An IPFS-based blog',
   },
   pathPrefix: '__GATSBY_IPFS_PATH_PREFIX__',
   plugins: [
@@ -22,19 +22,39 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: "./src/data/",
+        path: './src/data/',
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: "./markdown",
-        name: "markdown-pages"
+        path: './markdown',
+        name: 'markdown-pages',
       },
     },
-    "gatsby-transformer-json",
-    "gatsby-transformer-remark"
+    'gatsby-transformer-json',
+    'gatsby-transformer-remark',
+    'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 800,
+              linkImagesToOriginal: true,
+              sizeByPixelDensity: true,
+              showCaptions: true,
+            },
+          },
+        ],
+      },
+    },
   ],
 }
