@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Chris Troutner <chris.troutner@gmail.com>",
   "dependencies": {
+    "bitbox-sdk": "^6.1.1",
     "gatsby": "^2.3.25",
     "gatsby-plugin-ipfs": "^2.0.2",
     "gatsby-plugin-manifest": "^2.0.24",
