@@ -49,11 +49,10 @@ TypeScript.
 That last point is what really gets me. All the code I write, I publish as open
 source. And when I write that code, I write it for the novice version of me
 10 years ago. JavaScript has come so far, and I imagine it must be much more
-intimidating now then it was back then.
-
-TypeScript is just another hurdle for a novice developer to overcome. I want to
+intimidating now then it was back then. TypeScript is just another hurdle
+for a novice developer to overcome. I want to
 reduce friction and help developers enter the cryptocurrency and open source
-spaces. That's one reason why I focus on simplicity of syntax and
+spaces. That's one reason why I focus on simplicity of syntax, good comments, and
 minimum dependencies.
 
 These are my opinions and experiences with TypeScript. I'm sure there is whole
@@ -63,7 +62,8 @@ Use what you want, I'll do the same.
 The result is that I use TypeScript because I *have to*. I use it because someone
 is *paying me* to use it. When creating my own apps, I avoid it for the same
 reasons I avoid Babel. The downsides of using compiled languages is often not
-directly experienced, but only experienced later in the form of poor developer
+directly experienced, but only experienced inderectly, in the form of
+poorer developer
 experience, complexity, and issues with reliability and scaling. These are
 hard-won lessons of experience that are difficult to communicate to developers
 busy chasing the new, hottest technology.
