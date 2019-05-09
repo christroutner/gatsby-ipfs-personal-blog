@@ -5,8 +5,6 @@ import Layout from '../components/layout'
 //import BITBOXSDK from 'bitbox-sdk'
 import Memo from '../assets/js/memo.js'
 
-import pic11 from '../assets/images/pic11.jpg'
-
 // The BCH address broadcasting IPFS hashes when updates are made, using the
 // memo.cash protocol.
 const ADDR = `bitcoincash:qppngav5s88devt4ypv3vhgj643q06tctcx8fnzewp`
@@ -15,7 +13,7 @@ const ADDR = `bitcoincash:qppngav5s88devt4ypv3vhgj643q06tctcx8fnzewp`
 const memo = new Memo(ADDR)
 
 let _this
-window._this = _this
+_this = _this
 
 class Latest extends React.Component {
   constructor(props) {
@@ -25,6 +23,7 @@ class Latest extends React.Component {
 
     this.state = {
       hash: undefined,
+      msg: 'test message',
     }
   }
 
@@ -44,18 +43,24 @@ class Latest extends React.Component {
       }
       console.log(`latest hash: ${_this.hash}`)
 
+      const newUrl = `https://gateway.ipfs.io/ipfs/${_this.hash}`
+      console.log(`new URL: ${newUrl}`)
+
+      //this.state.msg = `new hash: ${_this.hash}`
+      //this.render()
+      if (typeof window !== 'undefined') {
+        window.location.href = newUrl
+      }
     } catch (err) {
       console.error(err)
     }
   }
 
   render() {
-    const hash = _this.hash
-
     return (
       <Layout>
         <Helmet>
-          <title>Generic - Forty by HTML5 UP</title>
+          <title>Latest</title>
           <meta name="description" content="Generic Page" />
         </Helmet>
 
@@ -63,45 +68,15 @@ class Latest extends React.Component {
           <section id="one">
             <div className="inner">
               <header className="major">
-                <h1>Generic</h1>
+                <h1>Latest Version</h1>
               </header>
-              <span className="image main">
-                <img src={pic11} alt="" />
-              </span>
+
               <p>
-                hash: {hash}
-              </p>
-              <p>
-                Donec eget ex magna. Interdum et malesuada fames ac ante ipsum
-                primis in faucibus. Pellentesque venenatis dolor imperdiet dolor
-                mattis sagittis. Praesent rutrum sem diam, vitae egestas enim
-                auctor sit amet. Pellentesque leo mauris, consectetur id ipsum
-                sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada
-                et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar
-                mauris. Curabitur sapien risus, commodo eget turpis at,
-                elementum convallis elit. Pellentesque enim turpis, hendrerit.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora
-                torquent per conubia nostra, per inceptos himenaeos. Etiam
-                tristique libero eu nibh porttitor fermentum. Nullam venenatis
-                erat id vehicula viverra. Nunc ultrices eros ut ultricies
-                condimentum. Mauris risus lacus, blandit sit amet venenatis non,
-                bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam
-                at, euismod in lectus. Pellentesque habitant morbi tristique
-                senectus et netus et malesuada fames ac turpis egestas. In non
-                lorem sit amet elit placerat maximus. Pellentesque aliquam
-                maximus risus, vel sed vehicula.
-              </p>
-              <p>
-                Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                Pellentesque venenatis dolor imperdiet dolor mattis sagittis.
-                Praesent rutrum sem diam, vitae egestas enim auctor sit amet.
-                Pellentesque leo mauris, consectetur id ipsum sit amet,
-                fersapien risus, commodo eget turpis at, elementum convallis
-                elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum
-                dolor.
+                This page should automatically navigate you to an IPFS gateway
+                within a few seconds with the latest
+                version of the site. If it fails, you can find the latest IPFS
+                upload by clicking the link at the top of
+                this <a href="https://memo.cash/profile/178M7njZV8qHNTwczgfu4f4fGik4tqrSR4">memo.cash feed</a>.
               </p>
             </div>
           </section>
