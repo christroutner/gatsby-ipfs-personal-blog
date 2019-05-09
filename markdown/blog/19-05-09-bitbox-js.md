@@ -34,10 +34,6 @@ to get proficient at this kind of setup than simply learning how TypeScript 'wor
 TypeScript compiler, trying to find the proper syntax and typing. What should take
 10 minutes, frequently takes me an hour of Googling to figure out how to override
 some Interface defined in some deep dependency.
-- Developers proficient at TypeScript can read and use JavaScript, but the reverse
-is not true. JavaScript developers unfamiliar with TypeScript can not read or use
-code snippets written in TypeScript, without taking the time to learn about
-TypeScript.
 - TypeScript is a compiled language, like Babel. Every time a developer hits
 `npm run` or `npm test`, there is a delay while the computer compiles the code
 before running the command. This time lag can be quite significant when quickly
@@ -45,6 +41,20 @@ iterating through code, like when writing unit tests.
 - While cross-compiling JavaScript for front end applications makes a lot of sense,
 I've never heard a convincing argument as to why it's a good idea for back end,
 server-side applications.
+- Developers proficient at TypeScript can read and use JavaScript, but the reverse
+is not true. JavaScript developers unfamiliar with TypeScript can not read or use
+code snippets written in TypeScript, without taking the time to learn about
+TypeScript.
+
+That last point is what really gets me. All the code I write, I publish as open
+source. And when I write that code, I write it for the novice version of me
+10 years ago. JavaScript has come so far, and I imagine it must be much more
+intimidating now then it was back then.
+
+TypeScript is just another hurdle for a novice developer to overcome. I want to
+reduce friction and help developers enter the cryptocurrency and open source
+spaces. That's one reason why I focus on simplicity of syntax and
+minimum dependencies.
 
 These are my opinions and experiences with TypeScript. I'm sure there is whole
 army of developers who would be happy to debate these points with me. That's fine.

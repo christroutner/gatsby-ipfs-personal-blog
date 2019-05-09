@@ -13,7 +13,6 @@ const ADDR = `bitcoincash:qppngav5s88devt4ypv3vhgj643q06tctcx8fnzewp`
 const memo = new Memo(ADDR)
 
 let _this
-_this = _this
 
 class Latest extends React.Component {
   constructor(props) {
