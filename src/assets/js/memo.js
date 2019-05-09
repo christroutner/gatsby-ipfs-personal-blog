@@ -45,7 +45,7 @@ class MEMO {
 
       // Extract the list of transaction IDs involving this address.
       const TXIDs = details.transactions
-      console.log(`TXIDs: ${JSON.stringify(TXIDs, null, 2)}`)
+      //console.log(`TXIDs: ${JSON.stringify(TXIDs, null, 2)}`)
 
       // Loop through each transaction associated with this address.
       for (let i = 0; i < TXIDs.length; i++) {
@@ -58,18 +58,19 @@ class MEMO {
         //console.log(`thisTx: ${JSON.stringify(thisTx, null, 2)}`)
 
         // Loop through all the vout entries in this transaction.
-        //for (let j = 0; j < thisTx.vout.length; j++) {
-        for (let j = 0; j < 3; j++) {
+        for (let j = 0; j < thisTx.vout.length; j++) {
+        //for (let j = 0; j < 5; j++) {
           const thisVout = thisTx.vout[j]
+          //console.log(`thisVout: ${JSON.stringify(thisVout,null,2)}`)
 
           // Assembly code representation of the transaction.
           const asm = thisVout.scriptPubKey.asm
-          console.log(`asm: ${asm}`)
+          //console.log(`asm: ${asm}`)
 
           // Decode the transactions assembly code.
-          const msg = this.decodeTransaction(asm)
+          const msg = this.decodeTransaction2(asm)
+          //console.log(`msg: ${msg}`)
           if (msg) {
-            console.log(`msg: ${msg}`)
 
             // Filter the code to see if it contains an IPFS hash.
             const hash = this.filterHash(msg)
@@ -108,13 +109,33 @@ class MEMO {
     }
   }
 
+  // The original decodeTransaction() did not work on the front end. This function
+  // is a hack around the issue.
+  decodeTransaction2(asm) {
+    try {
+      const asmWords = asm.split(" ")
+      //console.log(`asmWords: ${JSON.stringify(asmWords,null,2)}`)
+
+      if(asmWords[0] === "OP_RETURN" && asmWords[1] === "621") {
+        const msg = Buffer.from(asmWords[2], "hex").toString()
+        //console.log(`msg: ${msg}`)
+        return msg
+      }
+
+      return false
+    } catch(err) {
+      console.warn(`Error in decodeTransaction2: `, err)
+      return false
+    }
+  }
+
   // Decodes BCH transaction assembly code. If it matches the memo.cash
   // protocol for posts, it returns the post message. Otherwise returns false.
   decodeTransaction (asm) {
     try {
       // Decode the assembly into a string.
       let fromASM = BITBOX.Script.fromASM(asm)
-      //console.log(`fromASM: ${fromASM.toString()}`)
+      console.log(`fromASM: ${fromASM.toString()}`)
       let decodedArr = BITBOX.Script.decode(fromASM)
       console.log(`decodedArr: ${JSON.stringify(decodedArr)}`)
 
@@ -144,6 +165,7 @@ class MEMO {
 
       return false
     } catch (err) {
+      console.error(err)
       // Exit quietly
       return false
     }

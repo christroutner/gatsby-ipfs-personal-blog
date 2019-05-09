@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
+
 //import BITBOXSDK from 'bitbox-sdk'
 import Memo from '../assets/js/memo.js'
 
@@ -14,6 +15,7 @@ const ADDR = `bitcoincash:qppngav5s88devt4ypv3vhgj643q06tctcx8fnzewp`
 const memo = new Memo(ADDR)
 
 let _this
+window._this = _this
 
 class Latest extends React.Component {
   constructor(props) {
@@ -28,23 +30,28 @@ class Latest extends React.Component {
 
   async componentDidMount() {
     try {
-      console.log(`Hello world!`)
+      //console.log(`Hello world!`)
 
       //const price = await BITBOX.Price.current('usd')
       //console.log(`price: ${price}`)
 
       _this.hash = await memo.findHash()
+
       if (!_this.hash) {
         console.error(
           `Could not find IPFS hash in transactions for address ${ADDR}`
         )
       }
+      console.log(`latest hash: ${_this.hash}`)
+
     } catch (err) {
       console.error(err)
     }
   }
 
   render() {
+    const hash = _this.hash
+
     return (
       <Layout>
         <Helmet>
@@ -61,6 +68,9 @@ class Latest extends React.Component {
               <span className="image main">
                 <img src={pic11} alt="" />
               </span>
+              <p>
+                hash: {hash}
+              </p>
               <p>
                 Donec eget ex magna. Interdum et malesuada fames ac ante ipsum
                 primis in faucibus. Pellentesque venenatis dolor imperdiet dolor
