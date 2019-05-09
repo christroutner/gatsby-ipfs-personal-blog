@@ -123,3 +123,4 @@ additional services:
 - [SLPDB](https://github.com/simpleledger/SLPDB)
 - [BITDB](https://bitdb.bch.sx/)
 - [SLP SDK](https://github.com/Bitcoin-com/slp-sdk)
+- [BCHD](https://github.com/gcash/bchd)
