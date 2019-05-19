@@ -59,15 +59,9 @@ const Generic = props => (
                   <a href="http://troutsblog.com">troutsblog.com</a>
                 </StyldLi>
                 <StyldLi>
-                  Directly:{' '}
-                  <a href="http://decatur.hopto.org:4102">
-                    decatur.hopto.org:4102
-                  </a>
-                </StyldLi>
-                <StyldLi>
                   Tor hidden service:{' '}
-                  <a href="http://k2h7xxqcjzwsdj64.onion/">
-                    http://k2h7xxqcjzwsdj64.onion/
+                  <a href="http://f6lfmasvo2x3ogrr.onion/">
+                    http://f6lfmasvo2x3ogrr.onion/
                   </a>
                 </StyldLi>
                 <StyldLi>
