@@ -45,7 +45,7 @@ const Generic = props => (
                   Inter-Planetary File System (IPFS)
                 </a>{' '}
                 network. That content is downloaded and rebroadcast by several
-                other servers around the interent. Anyone who downloads that
+                other servers around the internet. Anyone who downloads that
                 content also helps broadcast the IPFS content. The Raspberry Pi
                 (RPi), is just a backup as a last resort, in case no other
                 systems on the internet have the content.
@@ -80,6 +80,31 @@ const Generic = props => (
               <img src={rpi} alt="" style={{ width: '100%' }} />
             </div>
           </div>
+
+          <h2>Videos - Learn More</h2>
+          <ul>
+            <StyldLi>
+              <a
+                href="https://www.youtube.com/watch?v=RlNVyatwd5M"
+                target="_blank"
+              >
+                Here is a non-technical video overview
+              </a>{' '}
+              of how governments censor content on the internet, and how
+              decentralized publishing tools can be used to circumvent it.
+            </StyldLi>
+            <StyldLi>
+              <a
+                href="https://www.youtube.com/watch?v=Ez9YXpu_Chs"
+                target="_blank"
+              >
+                Here is a walkthrough video
+              </a>{' '}
+              of how to use the tools discussed above, to publish your own
+              website in a decentralized, censorship-resistant way.
+            </StyldLi>
+          </ul>
+          <br />
 
           <h2>How it Works</h2>
           <p>
@@ -124,7 +149,7 @@ const Generic = props => (
               >
                 koa-ipfs-blog
               </a>{' '}
-              is the web server running on the Raspberry Pi pictured above (
+              is the 'back end' web server running on the Raspberry Pi pictured above (
               <a
                 href="https://github.com/christroutner/koa-ipfs-blog-rpi"
                 target="blank"
@@ -133,6 +158,17 @@ const Generic = props => (
               </a>
               ). It serves the content in a conventional way, but also
               syndicates it over the IPFS and Tor networks.
+            </StyldLi>
+            <StyldLi>
+              <a
+                href="https://github.com/christroutner/gatsby-ipfs-boilerplate"
+                target="_blank"
+              >
+                gatsby-ipfs-boilerplate
+              </a>{' '}
+              is the 'front end' website template used to create this site. You
+              can fork it to create your own website. It includes all the prerequisits
+              for syndicating your site over the IPFS network.
             </StyldLi>
             <StyldLi>
               <a
@@ -165,7 +201,7 @@ const Generic = props => (
                 target="_blank"
               >
                 IPFS Cacher
-              </a>{' '}
+              </a> (optional)
               finds the latest link published to the BCH blockchain the
               requests the IPFS content from a list of public IPFS gateways
               once per hour. This ensure that the gateways have the latest
@@ -175,30 +211,7 @@ const Generic = props => (
           </ul>
 
           <br />
-          <h2>Videos - Learn More</h2>
-          <ul>
-            <StyldLi>
-              <a
-                href="https://www.youtube.com/watch?v=RlNVyatwd5M"
-                target="_blank"
-              >
-                Here is a non-technical video overview
-              </a>{' '}
-              of how governments censor content on the internet, and how
-              decentralized publishing tools can be used to circumvent it.
-            </StyldLi>
-            <StyldLi>
-              <a
-                href="https://www.youtube.com/watch?v=Ez9YXpu_Chs"
-                target="_blank"
-              >
-                Here is a walkthrough video
-              </a>{' '}
-              of how to use the tools discussed above, to publish your own
-              website in a decentralized, censorship-resistant way.
-            </StyldLi>
-          </ul>
-          <br />
+
 
           <br />
           <h2>Decentralized Publishing Model</h2>

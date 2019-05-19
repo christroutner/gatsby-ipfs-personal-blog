@@ -18,7 +18,7 @@ const Banner = (props) => (
                   No government on earth is capable of censoring this website.
                 </p>
                 <ul className="actions">
-                    <li><a href="https://github.com/christroutner/gatsby-ipfs-boilerplate" target="_blank" className="button next scrolly">Build Your Own</a></li>
+                    <li><a href="/about" className="button next scrolly">Build Your Own</a></li>
                 </ul>
             </div>
         </div>
