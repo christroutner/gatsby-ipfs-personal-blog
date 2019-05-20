@@ -14,3 +14,5 @@ rm go-ipfs_v0.4.20_linux-amd64.tar.gz
 cd go-ipfs
 sudo ./install.sh
 ```
+
+You can also review the [IPFS installation instructions](https://docs.ipfs.io/introduction/install/).
