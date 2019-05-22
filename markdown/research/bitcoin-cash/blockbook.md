@@ -8,16 +8,17 @@ path: "/research/bitcoin-cash/blockbook"
 [Blockbook](https://github.com/trezor/blockbook) is a blockchain indexer that
 is [almost identical](https://gist.github.com/christroutner/ff1af0ee4f5a207571fe7857acdc916e) to
 Insight API. It is maintained by Trezor, the maker of hardware wallets.
-The fact that it is open source, has a good reputation, and Trezor has a clear
+The fact that it is open source, is a REST API, has a good reputation,
+and Trezor has a clear
 financial reason to maintain the software, makes this project stand out from
 all the other options.
 I'm currently exploring the use of this indexer, including as a
 replacement for the unwieldy Insight API.
 
 Indexers are needed because full nodes do not keep track of addresses. Full nodes
-only keep track of transactions, UTXOs, and blocks. But use cases often require
+only keep track of transactions and blocks. But use cases often require
 the ability to
-query balances at an address, or other types of metadata. This is the service
+query balances at an address, UTXO, or other types of metadata. This is the service
 an indexer provides.
 
 - [blockbook-docker](https://github.com/christroutner/blockbook-docker) is the
@@ -29,16 +30,28 @@ index all the addresses.
 ## Gotchas
 
 Here are my notes while working with this software:
+
 - Blockbook indexes with many threads, which is efficient, but if the machine
-loses power or the docker container is halted suddenly, it will corrupt the database
+loses power, the docker container is halted suddenly, or the machine runs out of
+memory, it will corrupt the database
 that Blockbook is building during the indexing processes. This can be prevented
 by running the flag `-workers=1`, which will force the indexing process to be
 single-threaded. This makes the indexing process much longer, but also prevents
 the threat of a corrupted database.
 
-- Running on a modern desktop with lots of ram and disk space, the indexing process
+- At the bottom of this page is a screen shot of a Digital Ocean droplet running
+Blockbook. This is an $80/month Droplet with 16GB or RAM. You can see the memory
+profile reaches 100% then crashes. I tried it three times with 20 workers,
+10 workers, and 5 workers, all with the same result. Each time Blockbook crashed
+around block 345000, and the crash corrupted the database, requiring me to start
+all over again.
+
+- Running on a modern desktop with lots of ram and disk space, but restricting
+the app to a single worker, the indexing process
 is taking over about 1-2 weeks. So the indexing process in *incredibly* slow.
 This is definitely one of those pieces of software that you set up and forget
 for a while.
 
-- Indexing will require a little less than 100GB of free disk space.
+- Indexing will require over 100GB of free disk space.
+
+![test](do-blockbook-crash.jpg)
