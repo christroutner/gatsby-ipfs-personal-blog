@@ -50,15 +50,15 @@ to configure Bitcore Node with BCH:
           "chainSource": "p2p",
           "trustedPeers": [
             {
-              "host": "104.248.233.8",
+              "host": "192.168.11.11",
               "port": 8333
             }
           ],
           "rpc": {
             "host": "192.168.11.11",
             "port": 8332,
-            "username": "user",
-            "password": "iohGu25NwuBj"
+            "username": "bitcoin",
+            "password": "password"
           }
         }
       }
@@ -104,3 +104,10 @@ zmqpubrawblock=tcp://0.0.0.0:18332
 zmqpubhashtx=tcp://0.0.0.0:18332
 zmqpubhashblock=tcp://0.0.0.0:18332
 ```
+
+## Docker Container
+I'm creating a Docker container to setup and run v8 of Bitcore Node and API. It
+assumes that it will be run on the same machine with an ABC full node on ports
+8332 and 8333.
+
+https://github.com/christroutner/docker-bitcore-node
