@@ -21,37 +21,41 @@ the ability to
 query balances at an address, UTXO, or other types of metadata. This is the service
 an indexer provides.
 
-- [blockbook-docker](https://github.com/christroutner/blockbook-docker) is the
-current prototype that I'm playing with and actively working on. It is
-automatically configured for the BCH chain. But you need to point it at a full node.
-It communicates with the full node over its RPC interface to download blocks and
-index all the addresses.
+- [docker-ubuntu-blockbook](https://github.com/christroutner/docker-ubuntu-blockbook) is
+the Docker container I've built to run the latest copy of Blockbook for Bitcoin
+Cash. It requires a fully synced BCH full node with RPC interface, and works
+with this [Dockerized full node](https://github.com/christroutner/docker-abc).
+
+- This Docker container is also targeted for Ubuntu 18.04 running on an amd64
+architecture. If you want to run it on a different architecture, you'll have
+to modify [my fork for Blockbook](https://github.com/christroutner/blockbook)
+to generate the `.deb` installation files for Bitcoin Cash.
+
 
 ## Gotchas
 
 Here are my notes while working with this software:
 
-- Blockbook indexes with many threads, which is efficient, but if the machine
-loses power, the docker container is halted suddenly, or the machine runs out of
-memory, it will corrupt the database
-that Blockbook is building during the indexing processes. This can be prevented
-by running the flag `-workers=1`, which will force the indexing process to be
-single-threaded. This makes the indexing process much longer, but also prevents
-the threat of a corrupted database.
-
-- At the bottom of this page is a screen shot of a Digital Ocean droplet running
-Blockbook. This is an $80/month Droplet with 16GB or RAM. You can see the memory
+- **Blockbook is a memory hog**: At the bottom of this page is a screen shot of a
+Digital Ocean droplet running Blockbook. This is an $80/month Droplet with
+16GB or RAM. You can see the memory
 profile reaches 100% then crashes. I tried it three times with 20 workers,
-10 workers, and 5 workers, all with the same result. Each time Blockbook crashed
-around block 345000, and the crash corrupted the database, requiring me to start
-all over again.
+10 workers, 5 workers, then 3 workers, all with the same result. Each time
+Blockbook crashed around block 345000, and the crash corrupted the database,
+requiring me to start all over again. <br /><br />
+Even at 1 thread, Blockbook still maxed out the memory and regularly crashed due
+to running out of memory. However, I set the Docker container to auto-restart,
+and running it single-threaded prevented the database from getting corrupted.
 
-- Running on a modern desktop with lots of ram and disk space, but restricting
-the app to a single worker, the indexing process
-is taking over about 1-2 weeks. So the indexing process in *incredibly* slow.
-This is definitely one of those pieces of software that you set up and forget
-for a while.
 
-- Indexing will require over 100GB of free disk space.
+- **Blockbook should be run single-threaded**: Blockbook indexes with many threads,
+which is (theoretically) efficient, but running multiple threads will corrupt the
+database when it crashes. When this happens, the user is forced to start resyncing
+from scratch, which is expensive and incredibly frustrating. Single thread
+operation is set with the flag `-workers=1`. This makes the indexing process
+much longer, but also prevents the threat of a corrupted database.
 
-![test](do-blockbook-crash.jpg)
+- A fully synced database will take up about **130 GB** of disk space.
+
+
+![Blockbook crashing and corrupting its database from using more than 16GB of memory](do-blockbook-crash.jpg)

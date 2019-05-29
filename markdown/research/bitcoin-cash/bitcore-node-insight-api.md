@@ -2,7 +2,7 @@
 title: 'Bitcore Node and Insight API'
 root: "/research"
 parent: "Bitcoin Cash"
-path: '/blog/bitcore-node-insight-api'
+path: '/research/bitcore-node-insight-api'
 ---
 
 In [this video](https://www.youtube.com/watch?v=o0FfW5rZPFs) where I talk about
@@ -30,9 +30,16 @@ GitHub repository. From the standpoint of rest.bitcoin.com, the only package
 of interest is
 the [Bitcore Node package](https://github.com/bitpay/bitcore/tree/master/packages/bitcore-node).
 
+Instead of dealing with Bitcore node directly, I created
+this [docker-bitcore-node](https://github.com/christroutner/docker-bitcore-node)
+repository which encapsulates the Bitcore Node software inside a Docker container
+and customizes it for the Bitcoin Cash network.
+Running it as a Docker container makes it easier to regularly backup the Mongo
+database. It includes Mongo as separate Docker container.
+
 In order to install the software, MongoDB and Node.js are required. A fully-synced
 BCH full node is also required. Here is the `bitcore.config.json` file needed
-to configure Bitcore Node with BCH:
+to configure Bitcore Node for BCH:
 
 ```json
 {
@@ -98,16 +105,24 @@ port=8333
 
 txindex=1
 
+port=8333
+
 # Enable zeromq for real-time data
-zmqpubrawtx=tcp://0.0.0.0:18332
-zmqpubrawblock=tcp://0.0.0.0:18332
-zmqpubhashtx=tcp://0.0.0.0:18332
-zmqpubhashblock=tcp://0.0.0.0:18332
+zmqpubrawtx=tcp://0.0.0.0:28332
+zmqpubrawblock=tcp://0.0.0.0:28332
+zmqpubhashtx=tcp://0.0.0.0:28332
+zmqpubhashblock=tcp://0.0.0.0:28332
 ```
 
-## Docker Container
-I'm creating a Docker container to setup and run v8 of Bitcore Node and API. It
-assumes that it will be run on the same machine with an ABC full node on ports
-8332 and 8333.
+## Gotchas
+- Bitcore Node on BCH takes an *incredible* amount of disk space at around
+320 GB. This takes up more space than any other indexer I've worked with.
 
-https://github.com/christroutner/docker-bitcore-node
+- The Bitcore Node handling of memory seems very robust. In tests on Digital
+Ocean during indexing, I observed the software race up to nearly 100% memory
+and 100% CPU usage, but the software remained stable. After indexing, the
+memory and CPU usage is minimal.<br /><br />
+This is great, because a service like Digital Ocean can be used to quickly
+index the blockchain in a short period of time by renting a huge amount of
+computing power. Once fully synced, the data can be moved to a separate volume
+and a much cheaper Droplet can be used to run the API.
