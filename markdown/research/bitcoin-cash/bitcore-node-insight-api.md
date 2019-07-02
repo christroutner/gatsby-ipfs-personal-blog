@@ -126,3 +126,9 @@ This is great, because a service like Digital Ocean can be used to quickly
 index the blockchain in a short period of time by renting a huge amount of
 computing power. Once fully synced, the data can be moved to a separate volume
 and a much cheaper Droplet can be used to run the API.
+
+- It takes a while for MongoDB to
+open the database. However, the Bitcore Node application comes up much faster.
+So Bitcore tends to error out. This is why I have the Docker container set
+to auto-restart. It will keep trying until MongoDB gets the DB online.
+[Here is an example of the error](/blog/bitcore-mongodb-error)
