@@ -31,11 +31,16 @@ curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 sudo usermod -aG docker ${USER}
 ```
 
+[This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04) shows how to install Docker on a Ubuntu system. It's specifically targeted to Digital Ocean's cloud servers, but should work for any Ubuntnu system.
+
+
 ## Install Docker Compose
 ```
 sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
+
+[This tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04) shows how to install Docker Compose on an Ubuntu system.
 
 ## Install IPFS
 ```
