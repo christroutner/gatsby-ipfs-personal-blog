@@ -6,13 +6,16 @@
 import React from 'react'
 import PostLink from '../post-link'
 import { StaticQuery, graphql } from 'gatsby'
-import Collapsible from 'react-collapsible'
+//import Collapsible from 'react-collapsible'
+import Collapsible from '../MyCollasible'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
+// Styling wrapping around the component.
 const StyledCollapsible = styled.div`
   background-color: #8482c426;
   padding: 15px;
+  border: 1px black solid;
 `
 
 // Query markdown
@@ -66,14 +69,21 @@ class LinkList extends React.Component {
 
       return (
         <StyledCollapsible key={parent}>
-          <Collapsible key={parent} trigger={parent}>
-            <ul>{linkObjs[index].linkHtml}</ul>
-          </Collapsible>
+          <table style={{ margin: 0 }}>
+            <tr>
+              <td>&#8883;</td>
+              <td>
+                <Collapsible key={parent} trigger={parent}>
+                  <ul>{linkObjs[index].linkHtml}</ul>
+                </Collapsible>
+              </td>
+            </tr>
+          </table>
         </StyledCollapsible>
       )
     })
 
-    return <div>{ResearchParents}</div>
+    return <span>{ResearchParents}</span>
   }
 
   render() {
@@ -109,26 +119,30 @@ class LinkList extends React.Component {
     //console.log(`parentTopics: ${JSON.stringify(parentTopics,null,2)}`)
 
     // Loop over each research parent.
-    for(let i=0; i < parentTopics.length; i++) {
+    for (let i = 0; i < parentTopics.length; i++) {
       const thisParent = parentTopics[i]
 
       const linkObj = {
         parent: thisParent,
         childLinks: [],
-        linkHtml: []
+        linkHtml: [],
       }
 
       // Loop over each article
-      for(let j=0; j < researchArticles.length; j++) {
+      for (let j = 0; j < researchArticles.length; j++) {
         const thisArticle = researchArticles[j]
 
-        if(thisArticle.node.frontmatter.parent === thisParent) {
+        if (thisArticle.node.frontmatter.parent === thisParent) {
           const path = thisArticle.node.frontmatter.path
           const title = thisArticle.node.frontmatter.title
 
           linkObj.childLinks.push(path)
 
-          linkObj.linkHtml.push(<li key={path}><Link to={path}>{title}</Link></li>)
+          linkObj.linkHtml.push(
+            <li key={path}>
+              <Link to={path}>{title}</Link>
+            </li>
+          )
         }
       }
 
