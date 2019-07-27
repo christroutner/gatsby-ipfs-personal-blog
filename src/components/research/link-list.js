@@ -41,10 +41,16 @@ const componentQuery = graphql`
   }
 `
 
+Collapsible.handleTransitionEnd = data => {
+  console.log(`handle transition triggered.`)
+}
+
 class LinkList extends React.Component {
   constructor(props) {
     super(props)
   }
+
+  listSymbol = `&#8883;`
 
   // This actually renders the component.
   componentJSX = data => {
@@ -70,14 +76,16 @@ class LinkList extends React.Component {
       return (
         <StyledCollapsible key={parent}>
           <table style={{ margin: 0 }}>
-            <tr>
-              <td>&#8883;</td>
-              <td>
-                <Collapsible key={parent} trigger={parent}>
-                  <ul>{linkObjs[index].linkHtml}</ul>
-                </Collapsible>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>{this.listSymbol}</td>
+                <td>
+                  <Collapsible key={parent} trigger={parent} onOpen={this.handleOpen} onClose={this.handleClose}>
+                    <ul>{linkObjs[index].linkHtml}</ul>
+                  </Collapsible>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </StyledCollapsible>
       )
@@ -150,6 +158,17 @@ class LinkList extends React.Component {
     }
 
     return linkObjs
+  }
+
+  handleOpen = event => {
+    const now = new Date()
+    console.log(`opened at ${now.toLocaleString()}`)
+    console.log(`event: ${JSON.stringify(event,null,2)}`)
+  }
+
+  handleclose = data => {
+    const now = new Date()
+    console.log(`closed at ${now.toLocaleString()}`)
   }
 }
 

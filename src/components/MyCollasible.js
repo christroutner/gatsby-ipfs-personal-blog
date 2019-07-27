@@ -1,3 +1,5 @@
+// https://www.npmjs.com/package/react-collapsible
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
