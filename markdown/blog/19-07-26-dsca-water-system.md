@@ -90,9 +90,8 @@ approved project by the water committee and approved by the BOD.
 
 ## Dawni's Overage
 As stated, a catastrophic leak occurred over a 30-day period at Dawni's house in
-November of 2018. This was partly due to a lack of shut-off valve on home-owner
-side of her meter, but was also partly due to a faulty shut-off valve on the DSCA
-owned side of the meter.
+October of 2018. This was partly due to a faulty shut-off valve on the DSCA
+owned side of the meter. [Here is her explanation of what happened](https://gateway.ipfs.io/ipfs/QmNWox1ETbBXxjA3QM2ZyySxjs2XbNozkjLaVK6HgV7nrR).
 
 Here are two images of her meter setter, clearly showing the shut-off valve in
 the 'off' position and clearly emitting a significant quantity of water:
@@ -100,7 +99,7 @@ the 'off' position and clearly emitting a significant quantity of water:
 - [Dawni's Broken Saddle - Pic 1](https://gateway.ipfs.io/ipfs/QmPF7F9p41Xc1pXfMyRAB5HdznD3CvpkmgnCGRmLeavKGw)
 - [Dawni's Broken Saddle - Pic 2](https://gateway.ipfs.io/ipfs/QmNustPrh7xcLsNdUKPvgGKw7QmrFrKs5MbNi375NoqGzC)
 
-The evidence seems clear to me that both Dawni and DSCA is at fault in
+The evidence seems clear to me that DSCA is at fault in
 this situation, and I think a judge would clearly rule with the same verdict.
 
 Dawni has been given a list of improvements, which she's implemented, and is adequately
@@ -111,7 +110,7 @@ I strongly suggest to the Board of Directors and the Water System Committee that
 we do the following:
 
 1. Replace her faulty meter setter with a new one that does not leak.
-2. Install an electronic meter to detect and prevent long-running leaks like this one.
+2. Install an electronic meter at the pump house to detect and prevent long-running leaks like this one.
 3. Forgive the fine levied against Dawni for her catastrophic loss.
 
 As a result of this catastrophic loss, a lot of water was wasted, but no equipment
@@ -135,3 +134,4 @@ Pursuing her fine will not benefit the community in any way.
 - [Buddy Wright Does Not Do Hot Taps](https://gateway.ipfs.io/ipfs/Qma99Lo3KZaKvNs9D9CELq4RX4jeZt8aLDsjYvvhnvdnWz)
 - [Dawni's Broken Saddle - Pic 1](https://gateway.ipfs.io/ipfs/QmPF7F9p41Xc1pXfMyRAB5HdznD3CvpkmgnCGRmLeavKGw)
 - [Dawni's Broken Saddle - Pic 2](https://gateway.ipfs.io/ipfs/QmNustPrh7xcLsNdUKPvgGKw7QmrFrKs5MbNi375NoqGzC)
+- [Dawnis Account of Events](https://gateway.ipfs.io/ipfs/QmNWox1ETbBXxjA3QM2ZyySxjs2XbNozkjLaVK6HgV7nrR)
