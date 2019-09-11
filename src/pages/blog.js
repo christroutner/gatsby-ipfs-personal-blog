@@ -3,6 +3,8 @@
   https://www.gatsbyjs.org/docs/adding-a-list-of-markdown-blog-posts/
 */
 
+/* eslint-disable */
+
 import React from 'react'
 import PostLink from '../components/post-link'
 import { graphql } from 'gatsby'
