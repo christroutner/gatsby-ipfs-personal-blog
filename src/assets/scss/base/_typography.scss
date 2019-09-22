@@ -45,6 +45,10 @@
 			color: desaturate(darken(_palette(highlight), 15), 5) !important;
 		}
 	}
+	
+	.gatsby-resp-image-link {
+		border-bottom: 0;
+	}
 
 	strong, b {
 		color: _palette(fg-bold);

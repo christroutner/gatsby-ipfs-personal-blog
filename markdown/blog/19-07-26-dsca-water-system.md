@@ -129,7 +129,6 @@ Pursuing her fine will not benefit the community in any way.
 ### Reference Material
 - [DSCA Water System Policies (2008)](https://gateway.ipfs.io/ipfs/QmdaKwYoG2tDmuVzLCaoFq9JGH3t2nTCh8n7sKj2fWmyBS)
 - [DSCA Water Hookup Agreement (2016)](https://gateway.ipfs.io/ipfs/QmXEooscNJ9epE4NXUx83XUQ7yES47KsJCSSwNCeuEHbZk)
-- [DSCA Management Questions](https://gateway.ipfs.io/ipfs/QmeqJnNkWoeecJesvfmhg4HiJgAc2wCxhXy2Ns6Ds97Ljn)
 - [Water Contractor Research Email](https://gateway.ipfs.io/ipfs/QmTV5scbcXYCoUgzvr7uygvs7vDx5MMqyDn49LsDkbxpBt)
 - [Buddy Wright Does Not Do Hot Taps](https://gateway.ipfs.io/ipfs/Qma99Lo3KZaKvNs9D9CELq4RX4jeZt8aLDsjYvvhnvdnWz)
 - [Dawni's Broken Saddle - Pic 1](https://gateway.ipfs.io/ipfs/QmPF7F9p41Xc1pXfMyRAB5HdznD3CvpkmgnCGRmLeavKGw)
