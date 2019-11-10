@@ -47,8 +47,12 @@ path: "/research/bitcoin-cash/curated-links"
 - Token Graph: https://slpexplorer.fountainhead.cash/#tokengraph/3916a24a051f8b3833a7fd128be51dd93015555ed9142d6106ec03267f5cdc4c
 - https://simpleledger.info/
 - More good SLP links: https://www.reddit.com/r/btc/comments/b7j206/get_started_with_slp_tokens_on_bitcoin_cash/?utm_source=share&utm_medium=ios_app
-* Simple Ledger Protocol JavaScript SDK: https://github.com/simpleledger/slpjs
-* SLP Token Generator: https://github.com/simpleledger/SimpleToken.cash
+- Simple Ledger Protocol JavaScript SDK: https://github.com/simpleledger/slpjs
+- SLP Token Generator: https://github.com/simpleledger/SimpleToken.cash
+- SLPDB query examples: https://github.com/simpleledger/SLPDB#3-how-do-i-query-for-slp-data
+- Token Icons repo: https://github.com/kosinusbch/slp-token-icons
+- stand-alone SLP token validation library: https://www.npmjs.com/package/slp-validate
+- gs++, graph search stand-alone app written by JT in c++: https://github.com/blockparty-sh/cpp_slp_graph_search
 
 ### SLPDB
 The db names are now:
