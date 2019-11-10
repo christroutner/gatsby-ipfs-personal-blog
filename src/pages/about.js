@@ -144,19 +144,13 @@ const Generic = props => (
           <ul>
             <StyldLi>
               <a
-                href="https://github.com/christroutner/koa-ipfs-blog"
+                href="https://github.com/Permissionless-Software-Foundation/ipfs-web-server"
                 target="_blank"
               >
-                koa-ipfs-blog
+                ipfs-web-server
               </a>{' '}
-              is the 'back end' web server running on the Raspberry Pi pictured above (
-              <a
-                href="https://github.com/christroutner/koa-ipfs-blog-rpi"
-                target="blank"
-              >
-                Here is a version for the Raspberry Pi
-              </a>
-              ). It serves the content in a conventional way, but also
+              is the 'back end' web server running on the Raspberry Pi pictured above.
+              It serves the content in a conventional way, but also
               syndicates it over the IPFS and Tor networks.
             </StyldLi>
             <StyldLi>
@@ -197,16 +191,15 @@ const Generic = props => (
             </StyldLi>
             <StyldLi>
               <a
-                href="https://github.com/christroutner/ipfs-cacher"
+                href="https://github.com/christroutner/ipfs-stay-connected"
                 target="_blank"
               >
-                IPFS Cacher
+                ipfs-stay-connected
               </a> (optional)
-              finds the latest link published to the BCH blockchain the
-              requests the IPFS content from a list of public IPFS gateways
-              once per hour. This ensure that the gateways have the latest
-              website updates on-hand and can provide the content to the
-              network too.
+              Will connect your local IPFS node to an array of other IPFS nodes,
+              and will renew the connection every couple minutes to ensure nodes
+              stay connected. It's very useful when uploading and syndicating
+              data over the IPFS network.
             </StyldLi>
           </ul>
 
