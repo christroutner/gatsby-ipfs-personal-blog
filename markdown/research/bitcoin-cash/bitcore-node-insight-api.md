@@ -2,7 +2,7 @@
 title: 'Bitcore Node and Insight API'
 root: "/research"
 parent: "Bitcoin Cash"
-path: '/research/bitcore-node-insight-api'
+path: '/research/bitcoin-cash/bitcore-node-insight-api'
 ---
 
 In [this video](https://www.youtube.com/watch?v=o0FfW5rZPFs) where I talk about

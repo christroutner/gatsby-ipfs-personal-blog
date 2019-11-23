@@ -31,8 +31,14 @@ faqContent.push(() => {
         </li>
 
         <li>
-          <a href="/research/bitcore-node-insight-api">
+          <a href="/research/bitcoin-cash/bitcore-node-insight-api">
             Bitcore Node and Insight API
+          </a>
+        </li>
+
+        <li>
+          <a href="/research/bitcoin-cash/how-to-bch-full-stack-developer">
+            How to become a full stack Bitcoin Cash developer
           </a>
         </li>
       </ul>
