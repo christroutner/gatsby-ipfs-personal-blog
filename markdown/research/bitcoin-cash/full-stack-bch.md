@@ -7,6 +7,8 @@ path: "/research/bitcoin-cash/how-to-bch-full-stack-developer"
 
 This is a guide to becoming a Bitcoin Cash (BCH) full stack developer. It's a deep rabbit hole and a long journey to mastering the full stack of BCH software, but the reward is making modern web and mobile apps that speak directly to the blockchain. But first, lets start with the most basic question: What *is* a BCH full stack developer? What does that term even *mean*?
 
+<center><iframe width="400" height="300" src="https://www.youtube.com/embed/ZwK0SHVxhE0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
 ## What is a BCH full stack developer?
 Let's start with a couple definitions:
 
@@ -67,7 +69,7 @@ Here are a few of the cloud-based REST APIs for interacting with the BCH network
 
 <u>There are very few free or paid REST API services for working with BCH.</u> This article will outline the steps you can take to run your own cloud infrastructure, to earn BCH as illustrated in this video:
 
-<iframe width="600" height="400" src="https://www.youtube.com/embed/oFa8Q2OCSaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<center><iframe width="400" height="300" src="https://www.youtube.com/embed/oFa8Q2OCSaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
 
 ## Running a Full Node
 The full node is the most fundamental piece of software. To run a full node, you'll need enough hard drive space to store the blockchain. This is currently under 200GB, but it's always growing. You'll also need at least 2 GB of RAM. Syncing a full node can take anywhere from 2 days to 2 weeks, depending on your hardware and internet connection. It's also possible to [purchase a hard-drive with a pre-synced full node](https://bchjs.cash).
@@ -109,7 +111,7 @@ My [Dockerized SLPDB](https://github.com/christroutner/docker-slpdb) includes [S
 ## REST API
 The REST API is the communication interface that lets modern web and mobile apps talk to the blockchain. It's a lightweight webserver that wraps the indexers and full node in a REST API. This allows high level applications to talk to low-level interfaces.
 
-<iframe width="600" height="400" src="https://www.youtube.com/embed/o0FfW5rZPFs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<center><iframe width="400" height="300" src="https://www.youtube.com/embed/o0FfW5rZPFs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
 
 Some of the REST API services that exist:
 
