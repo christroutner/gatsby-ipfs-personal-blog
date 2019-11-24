@@ -10,11 +10,11 @@ This is a guide to becoming a Bitcoin Cash (BCH) full stack developer. It's a de
 ## What is a BCH full stack developer?
 Let's start with a couple definitions:
 
-- **Developer**: A person who writes software. Because the world of software is so large, most developers will distinguish themselves by picking a specific programming language like JavaScript, Python, Java, or C#.
+- **Developer**: A person who writes software. Because the world of software is so large, most developers will distinguish themselves by picking a specific programming language like JavaScript, Python, Java, or C#.<br /><br />
 
 - **Full Stack**: Developers will typically specialize in **front end** development: phone apps, web apps, or other things with a user interface (**UI**). Or **back end** development: web servers, desktop applications, anything not involving a user interface. A full stack developer is one who is proficient at both.
 
-Let's start with the end goal and work backwards from there: A BCH full stack developer with the skills that businesses are willing to pay good money for can build a wallet application or some other application that talks directly to the BCH blockchain. It can reliably receive and send transactions. They are able to run and maintain the infrastructure required to support that application.
+Let's start with the end goal and work backwards from there: A BCH full stack developer, with the skills that businesses are willing to pay good money for, can build a wallet application or some other application that talks directly to the BCH blockchain. It can reliably receive and send transactions. They are able to run and maintain the infrastructure required to support that application.
 
 <u>This guide will give you a road map to acquiring the skills necessary to become a BCH full stack developer.</u> The emphasis is on JavaScript, but the infrastructure applies to any programming language.
 
@@ -143,8 +143,25 @@ A more experimental version of bch-cli-wallet is [slp-cli-wallet](https://www.np
 
 Also, there is [Badger SDK](https://developer.bitcoin.com/badger/). This provides React components and other code examples for interacting with [Badger Wallet](https://badger.bitcoin.com).
 
+## Minimum Viable Infrastructure
+There is a concept in the startup world of a minimum viable product or MVP. There are so many options of full nodes, indexers, and libraries that its easy to waste a lot of time on a less-than-optimal solution. I've been working full-time on BCH infrastructure for over a year. Here is the advice I have to give to aspiring developers who want to set up their own minimum viable infrastructure:
+
+- Use this [ABC full node Docker container](https://github.com/christroutner/docker-abc). It's the most popular full node implementation, and it's hard to go wrong with that choice.<br /><br />
+
+- Use [Blockbook](/research/bitcoin-cash/blockbook) for your indexer. It's not as responsive as the other indexers, but it has the smallest database and has shown to be the most reliable. [This Docker container](https://github.com/christroutner/docker-ubuntu-blockbook) allows you to run your own BCH version locally.<br /><br />
+
+- If you plan to dip your feet into the world of SLP tokens, then you'll want to run [this Docker container](https://github.com/christroutner/docker-slpdb). It contains everything needed to interact with them.<br /><br />
+
+- [bch-api](https://github.com/christroutner/bch-api) is a REST API that will communicate with all the above software. It's a node.js JavaScript web server using the express.js framework, and is a fork of rest.bitcoin.com.<br /><br />
+
+- [bch-js](https://www.npmjs.com/package/@chris.troutner/bch-js) is a JavaScript library that is intended to be paired with bch-api. It's also a fork of bitbox-sdk.<br /><br />
+
+- [slp-cli-wallet](https://www.npmjs.com/package/slp-cli-wallet) is an application-level JavaScript library that is intended to be paired with bch-js. It provides very high-level calls for applications to interact with the BCH blockchain.<br /><br />
+
+It will take weeks to sync the full node and indexers on a home computer. To shorten this time, [I sell a hard drive](https://bchjs.cash) that contains the fully synced databases containing the last eleven years of blockchain data. The files on that hard drive are intended to work with the above Docker containers. It should reduce the time syncing to a couple hours.
+
 ## Getting Support
-The Bitcoin Cash space is a rapidly moving target. The core concepts in this article won't change much, but the tools, implementations, and libraries are in a constant state of flux. A big part of being a successful full stack developer is injecting yourself into the community, so that you can ride the flow of ever-changing information. Most of the community discourse takes place on [Telgram](https://telegram.org/):
+The Bitcoin Cash space is a rapidly moving target. The core concepts in this article won't change much, but the tools, implementations, and libraries are in a constant state of flux. A big part of being a successful full stack developer is injecting yourself into the community, so that you can ride the flow of ever-changing information. Most of the community discourse takes place on [Telegram](https://telegram.org/):
 
 - [BITBOX Devs](https://t.me/bitboxdevs) is a public channel for asking questions around rest.bitcoin.com, BITBOX SDK, and SLP SDK.<br /><br />
 
