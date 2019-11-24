@@ -1,6 +1,6 @@
 ---
 date: '2019-05-09'
-title: 'BITBOX JS'
+title: 'TypeScript'
 root: '/blog'
 path: '/blog/bitbox-js'
 ---
