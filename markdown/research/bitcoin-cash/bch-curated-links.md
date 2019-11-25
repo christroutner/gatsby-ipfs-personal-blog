@@ -53,6 +53,7 @@ path: "/research/bitcoin-cash/curated-links"
 - Token Icons repo: https://github.com/kosinusbch/slp-token-icons
 - stand-alone SLP token validation library: https://www.npmjs.com/package/slp-validate
 - gs++, graph search stand-alone app written by JT in c++: https://github.com/blockparty-sh/cpp_slp_graph_search
+- Honk token Telegram Tipbot source code: https://github.com/KeithPatrick5/honktipbot
 
 ### SLPDB
 The db names are now:
@@ -92,11 +93,3 @@ https://badgerwallet.cash/button.js
 - Cash ID server-side npm package: https://www.npmjs.com/search?q=cashid
 - Cash ID React components: https://www.npmjs.com/package/react-cashid
 - BITBOX.ECPair.verify() used to validate Cash ID signatures: https://developer.bitcoin.com/bitbox/docs/ecpair#verify
-
-## Keoken
-Non-technical:
-- Keoken press release: https://news.bitcoin.com/bitprim-launches-keoken-a-token-and-smart-contract-platform-for-bch/
-- Keoken home page: https://www.keoken.io/
-
-### Technical:
-- Testnet wallet: wallet.keoken.io
