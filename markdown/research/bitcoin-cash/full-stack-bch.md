@@ -34,7 +34,7 @@ Before digging into the nitty-gritty back end infrastructure, it's often encoura
 <u>This wide range of applications all use the same common back end infrastructure.</u>
 
 ## The Full BCH Stack
-The diagram below illustrates the stack of software required to build applications like the ones above. The end-user application that are linked to above would make up the top-most layer of the stack.
+The diagram below illustrates the stack of software required to build applications like the ones above. Those applications all fit into the top-most layer of the stack.
 
 ![The BCH Full Stack](bch-api-stack2.jpeg)
 
@@ -44,7 +44,7 @@ Here is a description of each layer, starting at the bottom and working up to th
 
 - **Indexers** - Indexers are like small search engines. They communicate with the full node and crawl the blockchain data to create databases that contain additional metadata that is not directly accessible from the full node.<br /><br />
 
-- **REST API** - A REST API web server provides an interface for web applications to communicate inderectly with the indexers and full node. This layer provides a common interface for modern software (like web and mobile apps) to speak to the blockchain.<br /><br />
+- **REST API** - A REST API web server provides an interface for all modern programming languages to communicate inderectly with the indexers and full node. This layer provides a common interface for modern software (like web and mobile apps) to speak to the blockchain.<br /><br />
 
 - **JavaScript Library** - A JavaScript library like [bitbox-sdk](https://github.com/Bitcoin-com/bitbox-sdk) or [bch-js](https://github.com/christroutner/bch-js) provides an easy way to communicate with the REST API layer. It also contains utility software for common things like crafting custom transactions, creating wallets, and signing messages.<br /><br />
 
@@ -67,7 +67,7 @@ Here are a few of the cloud-based REST APIs for interacting with the BCH network
 
 - [bloq.cloud](https://bloq.cloud/) and [Block Cypher](https://www.blockcypher.com/) are a pay-to-play REST APIs with similar access as the above options, but they have very different structures to their REST API.<br /><br />
 
-<u>There are very few free or paid REST API services for working with BCH.</u> This article will outline the steps you can take to run your own cloud infrastructure, to earn BCH as illustrated in this video:
+<u>There are very few free or paid REST API services for working with BCH.</u> The industry needs more, and you could profit by providing these resources. This article will outline the steps you can take to run your own cloud infrastructure, to earn BCH as illustrated in this video:
 
 <center><iframe width="400" height="300" src="https://www.youtube.com/embed/oFa8Q2OCSaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
 
@@ -117,9 +117,11 @@ Some of the REST API services that exist:
 
 - [rest.bitcoin.com](https://rest.bitcoin.com) is an extension of [developer.bitcoin.com](https://developer.bitcoin.com).<br /><br />
 
-- [api.bchjs.cash](https://api.bchjs.cash) runs [bch-api](https://github.com/christroutner/bch-api), my personal fork of rest.bitcoin.com, which I use to try new ideas and solicite advice from the developer community.
+- [api.bchjs.cash](https://api.bchjs.cash) runs [bch-api](https://github.com/christroutner/bch-api), my personal fork of rest.bitcoin.com, which I use to try new ideas and solicit advice from the developer community.
+  - bch-api has been adapted to work with [this front end](https://github.com/Permissionless-Software-Foundation/jwt-bch-frontend) and [this back end](https://github.com/Permissionless-Software-Foundation/jwt-bch-api) authorization server. It generates JWT tokens for charging for access to your API, or for securing your API so that when exposing your API to the internet, random public people can't use it.
 
-I have not tried out these other REST APIs, but they look interesting:
+
+I have <u>not</u> tried out these other REST APIs, but they look interesting:
 - [bloq.cloud](https://bloq.cloud/)
 - [Block Cypher](https://www.blockcypher.com/)
 - [Blockchain.com](https://www.blockchain.com/api)
@@ -139,11 +141,11 @@ Finally! We're at the application layer! Yay!
 
 While bitbox-sdk, slp-sdk, and bch-js provide important functionality, most application developers are disappointed in how much bitcoin-specific knowledge is required to interact with them. That's why I created [bch-cli-wallet](https://www.npmjs.com/package/bch-cli-wallet). It's a command-line interface (CLI) app, but it's also an npm library that can easily be included into any other application. It provides high level functions like `create-wallet`, `get-address`, and `send-bch`. It reduces the amount of bitcoin-specific knowledge required to create applications.
 
-Speaking of required knowledge, all developers in this space should read and frequently refer to [Mastering Bitcoin Cash](https://developer.bitcoin.com/mastering-bitcoin-cash/). It'll be hard to go far in this space without familiaring yourself with basic Bitcoin concepts. And that book is free and one of the best resources.
+Speaking of required knowledge, all developers in this space should read and frequently refer to [Mastering Bitcoin Cash](https://developer.bitcoin.com/mastering-bitcoin-cash/). It'll be hard to go far in this space without familiarizing yourself with basic Bitcoin concepts. And that book is free and one of the best resources.
 
 A more experimental version of bch-cli-wallet is [slp-cli-wallet](https://www.npmjs.com/package/slp-cli-wallet). This fork has additional functionality to work with SLP tokens. Be sure to check the [GitHub Issues](https://github.com/christroutner/bch-cli-wallet/issues) for known bugs though, as it's not as stable as bch-cli-wallet.
 
-Also, there is [Badger SDK](https://developer.bitcoin.com/badger/). This provides React components and other code examples for interacting with [Badger Wallet](https://badger.bitcoin.com).
+Also, there is [Badger SDK](https://developer.bitcoin.com/badger/). This provides React components and other code examples for interacting with [Badger Wallet](https://badger.bitcoin.com). If you want to replace Paypal buttons with BCH buttons, this is the fastest way to do it.
 
 ## Minimum Viable Infrastructure
 There is a concept in the startup world of a minimum viable product or MVP. There are so many options of full nodes, indexers, and libraries that its easy to waste a lot of time on a less-than-optimal solution. I've been working full-time on BCH infrastructure for over a year. Here is the advice I have to give to aspiring developers who want to set up their own minimum viable infrastructure:
@@ -154,13 +156,15 @@ There is a concept in the startup world of a minimum viable product or MVP. Ther
 
 - If you plan to dip your feet into the world of SLP tokens, then you'll want to run [this Docker container](https://github.com/christroutner/docker-slpdb). It contains everything needed to interact with them.<br /><br />
 
-- [bch-api](https://github.com/christroutner/bch-api) is a REST API that will communicate with all the above software. It's a node.js JavaScript web server using the express.js framework, and is a fork of rest.bitcoin.com.<br /><br />
+- [bch-api](https://github.com/christroutner/bch-api) is a self-hosted REST API that will communicate with all the above software. It's a node.js JavaScript web server using the express.js framework, and is a fork of rest.bitcoin.com.<br /><br />
 
 - [bch-js](https://www.npmjs.com/package/@chris.troutner/bch-js) is a JavaScript library that is intended to be paired with bch-api. It's also a fork of bitbox-sdk.<br /><br />
 
 - [slp-cli-wallet](https://www.npmjs.com/package/slp-cli-wallet) is an application-level JavaScript library that is intended to be paired with bch-js. It provides very high-level calls for applications to interact with the BCH blockchain.<br /><br />
 
 It will take weeks to sync the full node and indexers on a home computer. To shorten this time, [I sell a hard drive](https://bchjs.cash) that contains the fully synced databases containing the last eleven years of blockchain data. The files on that hard drive are intended to work with the above Docker containers. It should reduce the time syncing to a couple hours.
+
+A final tip: Avoid testnet. It's traditional to develop apps using the testnet so that you don't waste real money. But the reality is that testnet is often too flaky to use, for a number of reasons. At the same time, it's possible to send 1000 sat (0.00001 BCH, a fraction of a penny) transactions on mainnet, with a mining fee of 1 sat/byte, while maintaining a high confidence that the transaction will be included in the next block. That makes a compelling argument to use mainnet for app testing instead of testnet. Most developers I know, including myself, take this approach.
 
 ## Getting Support
 The Bitcoin Cash space is a rapidly moving target. The core concepts in this article won't change much, but the tools, implementations, and libraries are in a constant state of flux. A big part of being a successful full stack developer is injecting yourself into the community, so that you can ride the flow of ever-changing information. Most of the community discourse takes place on [Telegram](https://telegram.org/):
@@ -170,6 +174,8 @@ The Bitcoin Cash space is a rapidly moving target. The core concepts in this art
 - [Permissionless Software Foundation](https://t.me/permissionless_software) is a channel for discussing bch-js, bch-api, slp-cli-wallet, and other software sponsored by the [Permissionless Software Foundation](https://psfoundation.cash)<br /><br />
 
 - [Simpleledger](https://t.me/simpleledger) is the place to explore and ask questions around SLP tokens.<br /><br />
+
+- [Fountainhead](https://t.me/fountainheadcash) is a public channel run by a group of experienced BCH developers.
 
 The above channels are a great place to get introduced to the Bitcoin Cash developer community. There are many other private channels (requiring an invite) where the real development discussion happens. Asking sincere questions and showing off your work in the channels above are the best way to find access to those channels.
 
