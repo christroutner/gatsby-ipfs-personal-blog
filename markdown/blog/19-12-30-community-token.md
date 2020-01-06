@@ -1,16 +1,16 @@
 ---
 date: '2019-12-30'
-title: 'Designing a psuedo-stable community token'
+title: 'Designing a pseudo-stable community token'
 root: '/blog'
-path: '/blog/design-psuedo-stable-community-token'
+path: '/blog/design-pseudo-stable-community-token'
 ---
 
-*This post walks through the math and architectural decisions behind the [token-liquidty app](https://github.com/Permissionless-Software-Foundation/token-liquidity) used by the [Permissionless Software Foundation](https://psfoundation.cash/). The app is an automated market-maker that allows for permissionless trading between a token and Bitcoin Cash. Send it tokens, it sends you BCH. Send it BCH, it sends you tokens. That's the basic idea behind how it works.*
+*This post walks through the math and architectural decisions behind the [token-liquidity app](https://github.com/Permissionless-Software-Foundation/token-liquidity) used by the [Permissionless Software Foundation](https://psfoundation.cash/). The app is an automated market-maker that allows for permissionless trading between a token and Bitcoin Cash. Send it tokens, it sends you BCH. Send it BCH, it sends you tokens. That's the basic idea behind how it works.*
 
 *The mathematics built into the app represent an attempt to create a community-based pseudo-stable token for rewarding and incentivizing developers that contribute to the Foundation's open source software projects, but the app could adjusted to fit any community currency.*
 
 ## Overview
-The [token-liquidty app](https://github.com/Permissionless-Software-Foundation/token-liquidity) is a JavaScript application written in node.js which is inspired by the [Bancor whitepaper](https://github.com/Permissionless-Software-Foundation/token-liquidity/blob/master/docs/bancor-formulas/bancor-protocol-whitepaper.pdf) and the ideas of creating community-based currency as explored [in this video](https://youtu.be/LcbHTF3zCdI). It's an automated, permissionless market-maker which allows a community token to achieve perfect liquidity between itself and Bitcoin Cash.
+The [token-liquidity app](https://github.com/Permissionless-Software-Foundation/token-liquidity) is a JavaScript application written in node.js which is inspired by the [Bancor whitepaper](https://github.com/Permissionless-Software-Foundation/token-liquidity/blob/master/docs/bancor-formulas/bancor-protocol-whitepaper.pdf) and the ideas of creating community-based currency as explored [in this video](https://youtu.be/LcbHTF3zCdI). It's an automated, permissionless market-maker which allows a community token to achieve perfect liquidity between itself and Bitcoin Cash.
 
 The mathematics behind the smart-contract described in Bancor's whitepaper were manipulated and adjusted to create a similar but new type of automated market-maker. The app constantly adjusts its exchange rate in order to provide 'guard rails' against market panics and irrational exuberance. The price of the token is still subject to free-market supply-and-demand, but it is strongly encouraged to fluctuate within a psudo-stable range of prices.
 
@@ -39,7 +39,7 @@ The basic equation above governs the balance of the token-liquidity app. The app
 
 
 
-The major features of the curve are determined by the initial values of BCH and tokens. In the example above the initial values are 25 BCH and 5000 tokens. This is not the initial state of the app, they are simply constants that determine important features like the psuedo-stable range of token balances and the point where the equation crosses the y-axis.
+The major features of the curve are determined by the initial values of BCH and tokens. In the example above the initial values are 25 BCH and 5000 tokens. This is not the initial state of the app, they are simply constants that determine important features like the pseudo-stable range of token balances and the point where the equation crosses the y-axis.
 
 ![constant relationship](./images/token-bch-constant.png 'psudo-stable relationshiop between tokens and BCH')
 
@@ -94,7 +94,7 @@ If the user sent in tokens, this step calculates the new balances and determines
 ![token spreadsheet](./images/token-in-spreadsheet.png 'calculating bch to send via spreadsheet')
 
 ## Step 3: Send difference to user
-Once the two states have been calculated, the difference between the states can be sent to the user. Because the mathematics are rooted in the Bitcoin Cash balance of the app, it's incredibly important that the app be able to trust the data it's recieving about its BCH balance. For this reason, the app does not interact with zero-confirmation transactions, and only sends the output to the user after two block confirmations. This trade-off in slower performance essentially eliminates the risk of a double-spend or block-reorg attacks.
+Once the two states have been calculated, the difference between the states can be sent to the user. Because the mathematics are rooted in the Bitcoin Cash balance of the app, it's incredibly important that the app be able to trust the data it's receiving about its BCH balance. For this reason, the app does not interact with zero-confirmation transactions, and only sends the output to the user after two block confirmations. This trade-off in slower performance essentially eliminates the risk of a double-spend or block-reorg attacks.
 
 The mathematics described in this post are captured in two functions within the token-liquidity apps code base:
 
@@ -108,11 +108,11 @@ For the [Permissionless Software Foundation](https://psfoundation.cash), the pur
 
 The functionality of the token-liquidity app has been expanded to read and analyze `OP_RETURN` messages in BCH transactions. It's important to point out the functionality described in this section only applies to BCH transactions, where the user sends BCH to the token-liquidity app. It does not apply to transactions where users send tokens to the token-liquidity app. The SLP token protocol uses the OP_RETURN message in a different way.
 
-When the token-liquidty app receives Bitcoin Cash, it will analyize the transaction to see if one of the outputs contains an OP_RETURN message. If that message contains the code 'BURN', then the app will burn the equivalent amount of tokens, instead of the default behavior of sending the tokens on to the user.
+When the token-liquidity app receives Bitcoin Cash, it will analyze the transaction to see if one of the outputs contains an OP_RETURN message. If that message contains the code 'BURN', then the app will burn the equivalent amount of tokens, instead of the default behavior of sending the tokens on to the user.
 
 When the tokens are burned, they have the exact same effect on price, except the tokens are taken out of circulation, thereby passing that value on to the other tokens in circulation. i.e. The tokens held by the developers become more valuable.
 
-This burning mechism achieves two goals:
+This burning mechanism achieves two goals:
 
 - End-users only need to deal with BCH and not tokens, thereby reducing friction. The sending of BCH to the token-liquidity app will be handled 'under the hood' and the end user does not even need to be aware of the token-economic model.<br /><br />
 
