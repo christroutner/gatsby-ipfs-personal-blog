@@ -164,6 +164,8 @@ There is a concept in the startup world of a minimum viable product or MVP. Ther
 
 It will take weeks to sync the full node and indexers on a home computer. To shorten this time, [I sell a hard drive](https://bchjs.cash) that contains the fully synced databases containing the last eleven years of blockchain data. The files on that hard drive are intended to work with the above Docker containers. It should reduce the time syncing to a couple hours.
 
+Alternatively, I've set up a server that syndicated the above databases over IPFS and BitTorrent. You can access the information to [download the files here](https://fullstack.cash/cashstrap).
+
 A final tip: Avoid testnet. It's traditional to develop apps using the testnet so that you don't waste real money. But the reality is that testnet is often too flaky to use, for a number of reasons. At the same time, it's possible to send 1000 sat (0.00001 BCH, a fraction of a penny) transactions on mainnet, with a mining fee of 1 sat/byte, while maintaining a high confidence that the transaction will be included in the next block. That makes a compelling argument to use mainnet for app testing instead of testnet. Most developers I know, including myself, take this approach.
 
 ## Getting Support
