@@ -7,7 +7,7 @@ path: '/blog/design-pseudo-stable-community-token'
 
 *This post walks through the math and architectural decisions behind the [token-liquidity app](https://github.com/Permissionless-Software-Foundation/token-liquidity) used by the [Permissionless Software Foundation](https://psfoundation.cash/). The app is an automated market-maker that allows for permissionless trading between a token and Bitcoin Cash. Send it tokens, it sends you BCH. Send it BCH, it sends you tokens. That's the basic idea behind how it works.*
 
-*The mathematics built into the app represent an attempt to create a community-based pseudo-stable token for rewarding and incentivizing developers that contribute to the Foundation's open source software projects, but the app could adjusted to fit any community currency.*
+*The mathematics built into the app represent an attempt to create a community-based pseudo-stable token for rewarding and incentivizing developers that contribute to the Foundation's open source software projects, but the app could be adjusted to fit any community currency.*
 
 ## Overview
 The [token-liquidity app](https://github.com/Permissionless-Software-Foundation/token-liquidity) is a JavaScript application written in node.js which is inspired by the [Bancor whitepaper](https://github.com/Permissionless-Software-Foundation/token-liquidity/blob/master/docs/bancor-formulas/bancor-protocol-whitepaper.pdf) and the ideas of creating community-based currency as explored [in this video](https://youtu.be/LcbHTF3zCdI). It's an automated, permissionless market-maker which allows a community token to achieve perfect liquidity between itself and Bitcoin Cash.
@@ -39,7 +39,7 @@ The basic equation above governs the balance of the token-liquidity app. The app
 
 
 
-The major features of the curve are determined by the initial values of BCH and tokens. In the example above the initial values are 25 BCH and 5000 tokens. This is not the initial state of the app, they are simply constants that determine important features like the pseudo-stable range of token balances and the point where the equation crosses the y-axis.
+The major features of the curve are determined by the initial values of BCH and tokens. The examples in this post use the initial values of 25 BCH and 5000 tokens. This is not the initial state of the app, they are simply constants that determine important features like the pseudo-stable range of token balances and the point where the equation crosses the y-axis.
 
 ![constant relationship](./images/token-bch-constant.png 'psudo-stable relationshiop between tokens and BCH')
 
