@@ -45,7 +45,16 @@ I believe that one day a single coin will embody all the traits of the Best curr
 
 The reason I know it will exist, is because every human on earth wants to achieve it. They may not know it, they may not even be able to conceptualize it, but every human yearns for sovereignty. And money is simply a reflection of human nature.
 
+<br /><br />
+
 ### Making Bitcoin Cash Truely Unconfiscatable
 This video shows how to use some software I wrote to generate 'paper' wallets for Bitcoin Cash. This allows you to store your BCH in a 'cold wallet'. I take the concept a step further by using a laser engraver to etch the information onto a plastic card. This card can be buried, like gold.
 
 <iframe width="600" height="400" src="https://www.youtube.com/embed/3qn0mmfwlBQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br /><br />
+
+### Cold Storage for SLP Tokens
+This video extends the video above, by showing how to use the same software to create a paper wallet to store SLP tokens. You can retrieve the tokens off the paper wallet using [Badger Mobile](https://badger.bitcoin.com) or the [sweep command in slp-cli-wallet](https://github.com/christroutner/slp-cli-wallet#slp-cli-wallet-sweep).
+
+<iframe width="600" height="400" src="https://www.youtube.com/embed/g7G-TZ7fW2s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
