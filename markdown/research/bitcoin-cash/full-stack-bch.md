@@ -27,7 +27,7 @@ Before digging into the nitty-gritty back end infrastructure, it's often encoura
 
 - [Memo](https://memo.cash/) is a clone of Twitter, but uses the BCH blockchain. Because its based on the blockchain, there can be no deplatforming or censorship of any kind. Memo also includes a decentralized exchange for selling SLP tokens.<br /><br />
 
-- [Honest](https://honest.cash/v2/) is a blogging platform similar to [Medium](https://medium.com/). After writing an article, authors can embed the article into the BCH blockchain, so that it can never be deleted or censored.<br /><br />
+- [read.cash](https://read.cash) is a blogging platform similar to [Medium](https://medium.com/). The site implements a BCH wallet and 'micro-tipping'. You can tip an auther as little at $0.05 to show your appriciation for their work. Comments are upvoted based on these micro tips, which leads to really healthy discussions about the content.<br /><br />
 
 - [Satoshi Dice](https://www.satoshidice.com/) is a very simple gambling game that lets you bet with BCH. Because is uses the BCH blockchain, all bets and payouts are publicly transparent and the game is [provably fair](https://www.satoshidice.com/fair).
 
@@ -42,9 +42,9 @@ Here is a description of each layer, starting at the bottom and working up to th
 
 - **Full Node** - A full node is the most fundamental piece of software in Bitcoin. This is a 'non-pruned' or 'archival' node that contains a full copy of the blockchain.<br /><br />
 
-- **Indexers** - Indexers are like small search engines. They communicate with the full node and crawl the blockchain data to create databases that contain additional metadata that is not directly accessible from the full node.<br /><br />
+- **Indexers** - Indexers are like small search engines. They communicate with the full node and crawl the blockchain data to create databases that contain additional metadata that is not directly accessible from the full node. This metadata includes things like SLP tokens, and posts on Memo.cash.<br /><br />
 
-- **REST API** - A REST API web server provides an interface for all modern programming languages to communicate inderectly with the indexers and full node. This layer provides a common interface for modern software (like web and mobile apps) to speak to the blockchain.<br /><br />
+- **REST API** - A REST API web server provides an interface for all modern programming languages to communicate indirectly with the indexers and full node. This layer provides a common interface for modern software (like web and mobile apps) to speak to the blockchain.<br /><br />
 
 - **JavaScript Library** - A JavaScript library like [bitbox-sdk](https://github.com/Bitcoin-com/bitbox-sdk) or [bch-js](https://github.com/christroutner/bch-js) provides an easy way to communicate with the REST API layer. It also contains utility software for common things like crafting custom transactions, creating wallets, and signing messages.<br /><br />
 
@@ -57,25 +57,25 @@ This entire software stack can be run on a modern computer with 16-32 GB of RAM,
 ### Skipping the back end
 To help front end developers get started quickly, and to remove the burden of hosting your own back end infrastructure, there are a growing list of cloud service providers. This provides convenience at a price.
 
-*Note:* Trusting a service provider to handle the back end infrastructure for you is convenient, but if their servers go down, your app goes down with them. And unless you run your own fall-back infrastructure, you have no recourse but to simply wait until they get back up and running. This is known as **[platform risk](https://blog.simeonov.com/2013/03/05/platform-risk-anti-pattern/)**. *The only way to eliminate platform risk is to run your own infrastructure.*
+*Note:* Trusting a service provider to handle the back end infrastructure for you is convenient, but if their servers go down, your app goes down with them. And unless you run your own fall-back infrastructure, you have no recourse but to simply wait until they get back up and running. This is known as **[platform risk](https://blog.simeonov.com/2013/03/05/platform-risk-anti-pattern/)**. *The only way to eliminate platform risk is to [run your own infrastructure](https://fullstack.cash/cashstrap).*
 
 Here are a few of the cloud-based REST APIs for interacting with the BCH network:
 
 - [rest.bitcoin.com](https://rest.bitcoin.com) is probably the most popular REST API for interacting with the BCH blockchain. [bitbox-sdk](https://github.com/Bitcoin-com/bitbox-sdk) is a JavaScript library that provides easy endpoints for working with rest.bitcoin.com and provides additional important tools for working with Bitcoin Cash. Documentation for both can be found at [developer.bitcoin.com](https://developer.bitcoin.com/).<br /><br />
 
-- [account.bchjs.cash](https://account.bchjs.cash) is a pay-to-play prototype of rest.bitcoin.com that is accessed through [api.bchjs.cash](https://api.bchjs.cash). [bch-js](https://www.npmjs.com/package/@chris.troutner/bch-js) is a fork of the bitbox-sdk JavaScript library that is designed to work with it.<br /><br />
+- [FullStack.cash](https://fullstack.cash) is a pay-to-play fork of rest.bitcoin.com that is accessed through [api.bchjs.cash](https://api.fullstack.cash). [bch-js](https://www.npmjs.com/package/@chris.troutner/bch-js) is a fork of the bitbox-sdk JavaScript library that is designed to work with it.<br /><br />
 
-- [bloq.cloud](https://bloq.cloud/) and [Block Cypher](https://www.blockcypher.com/) are a pay-to-play REST APIs with similar access as the above options, but they have very different structures to their REST API.<br /><br />
+- [bloq.cloud](https://bloq.cloud/) and [Block Cypher](https://www.blockcypher.com/) are a pay-to-play REST APIs with similar access as the above options, but they have very different structures to their REST API. While it's easy to switch between Bitcoin.com tools and FullStack.cash tools (because they are forks of the same code base), there is much more work involved with switching to these other platforms.<br /><br />
 
-<u>There are very few free or paid REST API services for working with BCH.</u> The industry needs more, and you could profit by providing these resources. This article will outline the steps you can take to run your own cloud infrastructure, to earn BCH as illustrated in this video:
+<u>There are very few free or paid REST API services for working with BCH.</u> The industry needs more, and you could profit by providing these resources. This article outlines the steps you can take to run your own cloud infrastructure, to earn BCH as illustrated in this video:
 
 <center><iframe width="400" height="300" src="https://www.youtube.com/embed/oFa8Q2OCSaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
 
 ## Running a Full Node
-The full node is the most fundamental piece of software. To run a full node, you'll need enough hard drive space to store the blockchain. This is currently under 200GB, but it's always growing. You'll also need at least 2 GB of RAM. Syncing a full node can take anywhere from 2 days to 2 weeks, depending on your hardware and internet connection. It's also possible to [purchase a hard-drive with a pre-synced full node](https://bchjs.cash).
+The full node is the most fundamental piece of software. To run a full node, you'll need enough hard drive space to store the blockchain. This is currently under 200GB, but it's always growing. You'll also need at least 2 GB of RAM. Syncing a full node can take anywhere from 2 days to 2 weeks, depending on your hardware and internet connection.
 
 There are several full node implementations. Here are a few:
-- [ABC](https://www.bitcoinabc.org/) has the majority of market share. Its the implementation that started the BCH fork, and is the most widely used by exchanges and miners.<br /><br />
+- [ABC](https://www.bitcoinabc.org/) has the majority of market share. It's the implementation that started the BCH fork, and is the most widely used by exchanges and miners.<br /><br />
 
 - [BU](https://www.bitcoinunlimited.info/download) is the second most popular Bitcoin Cash implementation.<br /><br />
 
@@ -83,7 +83,9 @@ There are several full node implementations. Here are a few:
 
 - [Flowee the Hub](https://flowee.org/) is a one of the newest implementations on the scene.<br /><br />
 
-This article only focuses on the ABC implementation of Bitcoin Cash. I maintain a Docker container for running a full node. Installation instructions can be found in the [GitHub repository for docker-abc](https://github.com/christroutner/docker-abc).
+- [Bitcoin Verde](https://bitcoinverde.org/documentation/) is another full node implementation.
+
+This article only focuses on the ABC implementation of Bitcoin Cash. I maintain a Docker container for running this full node. Installation instructions can be found in the [GitHub repository for docker-abc](https://github.com/christroutner/docker-abc).
 
 ## Indexers
 As mentioned at the beginning of this article, indexers are like little search engines that crawl the blockchain and stitch together metadata that is not directly available from the full node. The two most important features that an indexer provides for wallet apps and other modern applications is:
@@ -117,8 +119,9 @@ Some of the REST API services that exist:
 
 - [rest.bitcoin.com](https://rest.bitcoin.com) is an extension of [developer.bitcoin.com](https://developer.bitcoin.com).<br /><br />
 
-- [api.bchjs.cash](https://api.bchjs.cash) runs [bch-api](https://github.com/christroutner/bch-api), my personal fork of rest.bitcoin.com, which I use to try new ideas and solicit advice from the developer community.
-  - bch-api has been adapted to work with [this front end](https://github.com/Permissionless-Software-Foundation/jwt-bch-frontend) and [this back end](https://github.com/Permissionless-Software-Foundation/jwt-bch-api) authorization server. It generates JWT tokens for charging for access to your API, or for securing your API so that when exposing your API to the internet, random public people can't use it.
+- [FullStack.cash](https://fullstack.cash) runs [bch-api](https://github.com/christroutner/bch-api), a fork of rest.bitcoin.com.
+
+  - bch-api has been adapted to work with [this front end](https://github.com/Permissionless-Software-Foundation/jwt-bch-frontend) and [this back end](https://github.com/Permissionless-Software-Foundation/jwt-bch-api) authorization server. It generates JWT tokens for charging for access to your API, or for securing your API, so that when exposing your API to the internet, random public people can't use it.
 
 
 I have <u>not</u> tried out these other REST APIs, but they look interesting:
@@ -127,32 +130,32 @@ I have <u>not</u> tried out these other REST APIs, but they look interesting:
 - [Blockchain.com](https://www.blockchain.com/api)
 
 ## JavaScript Libraries
-[bitbox-sdk](https://www.npmjs.com/package/bitbox-sdk) is one of the most popular JavaScript libraries for working with Bitcoin Cash. You can look at [the documentation](https://developer.bitcoin.com/bitbox/docs/getting-started) and browse all the features. Not only does it provide an easy interface to the REST API, it includes a complete toolbox of commonly needed methods when working with Bitcoin. Browse [simple example apps](https://github.com/Bitcoin-com/bitbox-sdk/tree/master/examples) to learn how to code with it quickly.
+[bitbox-sdk](https://www.npmjs.com/package/bitbox-sdk) is one of the most popular JavaScript libraries for working with Bitcoin Cash. You can look at [the documentation](https://developer.bitcoin.com/bitbox/docs/getting-started) and browse all the features. Not only does it provide an easy interface to the REST API, it includes a complete toolbox of commonly needed methods when working with Bitcoin Cash. Browse [simple example apps](https://github.com/Bitcoin-com/bitbox-sdk/tree/master/examples) to learn how to code with it quickly.
 
 [slp-sdk](https://www.npmjs.com/package/slp-sdk) is a superset of bitbox-sdk. It contains all the functionality of bitbox-sdk, plus the ablility to work with SLP tokens. It also has [examples](https://github.com/Bitcoin-com/slp-sdk/tree/master/examples) and [documentation](https://developer.bitcoin.com/slp/docs/js/getting-started).
 
-I maintain my own fork of bitbox-sdk called [bch-js](https://www.npmjs.com/package/@chris.troutner/bch-js), which has its own [examples](https://github.com/Permissionless-Software-Foundation/bch-js-examples) and [documentation](https://bchjs.cash/bch-js/index.html). It contains some additional functionality, like:
-- Interfacing with the [OpenBazaar Indexer](https://bchjs.cash/bch-js/index.html#api-OpenBazaar)
+[bch-js](https://www.npmjs.com/package/@chris.troutner/bch-js) is a fork of bitbox-sdk, which works with the [FullStack.cash](https://fullstack.cash) API. It also has a collection of [example apps](https://fullstack.cash/examples) and [documentation](https://fullstack.cash/documentation). It has a few additional features compared to the libraries above:
+
+- Interface with the [OpenBazaar Indexer](https://bchjs.cash/bch-js/index.html#api-OpenBazaar)
 - Works with [SLP tokens](https://bchjs.cash/bch-js/index.html#api-SLP) natively (no external libraries).
 - Includes endpoints for [Blockbook](https://bchjs.cash/bch-js/index.html#api-Blockbook) and [Bitcore](https://bchjs.cash/bch-js/index.html#api-Bitcore) indexers.
+- Support for BCHD comming soon!
 
 ## Applications
 Finally! We're at the application layer! Yay!
 
-While bitbox-sdk, slp-sdk, and bch-js provide important functionality, most application developers are disappointed in how much bitcoin-specific knowledge is required to interact with them. That's why I created [bch-cli-wallet](https://www.npmjs.com/package/bch-cli-wallet). It's a command-line interface (CLI) app, but it's also an npm library that can easily be included into any other application. It provides high level functions like `create-wallet`, `get-address`, and `send-bch`. It reduces the amount of bitcoin-specific knowledge required to create applications.
+While bitbox-sdk, slp-sdk, and bch-js provide important functionality, most application developers are disappointed in how much bitcoin-specific knowledge is required to interact with them. That's why I created [slp-cli-wallet](https://www.npmjs.com/package/slp-cli-wallet). It's a command-line interface (CLI) app, but it's also an npm library that can easily be included into any other application. It provides high level functions like `create-wallet`, `get-address`, and `send-bch`. It reduces the amount of bitcoin-specific knowledge required to create applications.
 
-Speaking of required knowledge, all developers in this space should read and frequently refer to [Mastering Bitcoin Cash](https://developer.bitcoin.com/mastering-bitcoin-cash/). It'll be hard to go far in this space without familiarizing yourself with basic Bitcoin concepts. And that book is free and one of the best resources.
-
-A more experimental version of bch-cli-wallet is [slp-cli-wallet](https://www.npmjs.com/package/slp-cli-wallet). This fork has additional functionality to work with SLP tokens. Be sure to check the [GitHub Issues](https://github.com/christroutner/bch-cli-wallet/issues) for known bugs though, as it's not as stable as bch-cli-wallet.
+Speaking of required knowledge, all developers in this space should read and frequently refer to [Mastering Bitcoin Cash](https://developer.bitcoin.com/mastering-bitcoin-cash/). It'll be hard to go far in this space without familiarizing yourself with basic Bitcoin concepts. The book is free and one of the best resources.
 
 Also, there is [Badger SDK](https://developer.bitcoin.com/badger/). This provides React components and other code examples for interacting with [Badger Wallet](https://badger.bitcoin.com). If you want to replace Paypal buttons with BCH buttons, this is the fastest way to do it.
 
 ## Minimum Viable Infrastructure
-There is a concept in the startup world of a minimum viable product or MVP. There are so many options of full nodes, indexers, and libraries that its easy to waste a lot of time on a less-than-optimal solution. I've been working full-time on BCH infrastructure for over a year. Here is the advice I have to give to aspiring developers who want to set up their own minimum viable infrastructure:
+There is a concept in the startup world of a minimum viable product or MVP. There are so many options of full nodes, indexers, and libraries that its easy to waste a lot of time on a less-than-optimal solution. I've been working full-time on BCH infrastructure for two years. Here is the advice I have to give to aspiring developers who want to set up their own minimum viable infrastructure, it's based on the [downloadable databases here](https://fullstack.cash/cashstrap).
 
 - Use this [ABC full node Docker container](https://github.com/christroutner/docker-abc). It's the most popular full node implementation, and it's hard to go wrong with that choice.<br /><br />
 
-- Use [Blockbook](/research/bitcoin-cash/blockbook) for your indexer. It's not as responsive as the other indexers, but it has the smallest database and has shown to be the most reliable. [This Docker container](https://github.com/christroutner/docker-ubuntu-blockbook) allows you to run your own BCH version locally.<br /><br />
+- Use [Blockbook](/research/bitcoin-cash/blockbook) for your indexer. It has the smallest database and has shown to be the most reliable. [This Docker container](https://github.com/christroutner/docker-ubuntu-blockbook) allows you to run your own BCH version locally.<br /><br />
 
 - If you plan to dip your feet into the world of SLP tokens, then you'll want to run [this Docker container](https://github.com/christroutner/docker-slpdb). It contains everything needed to interact with them.<br /><br />
 
@@ -162,18 +165,16 @@ There is a concept in the startup world of a minimum viable product or MVP. Ther
 
 - [slp-cli-wallet](https://www.npmjs.com/package/slp-cli-wallet) is an application-level JavaScript library that is intended to be paired with bch-js. It provides very high-level calls for applications to interact with the BCH blockchain.<br /><br />
 
-It will take weeks to sync the full node and indexers on a home computer. To shorten this time, [I sell a hard drive](https://bchjs.cash) that contains the fully synced databases containing the last eleven years of blockchain data. The files on that hard drive are intended to work with the above Docker containers. It should reduce the time syncing to a couple hours.
+It will take weeks to sync the full node and indexers on a home computer. To shorten this time, [you can download pre-synced databases](https://fullstack.cash/cashstrap) that contain the last eleven years of blockchain data. Those files are intended to work with the above Docker containers. It should reduce the time syncing to a couple hours.
 
-Alternatively, I've set up a server that syndicated the above databases over IPFS and BitTorrent. You can access the information to [download the files here](https://fullstack.cash/cashstrap).
-
-A final tip: Avoid testnet. It's traditional to develop apps using the testnet so that you don't waste real money. But the reality is that testnet is often too flaky to use, for a number of reasons. At the same time, it's possible to send 1000 sat (0.00001 BCH, a fraction of a penny) transactions on mainnet, with a mining fee of 1 sat/byte, while maintaining a high confidence that the transaction will be included in the next block. That makes a compelling argument to use mainnet for app testing instead of testnet. Most developers I know, including myself, take this approach.
+A final tip: <u>Avoid testnet</u>. It's traditional to develop apps using the testnet so that you don't waste real money. But the reality is that testnet is often too flaky to use, for a number of reasons. At the same time, it's possible to send 1000 sat (0.00001 BCH, a fraction of a penny) transactions on mainnet, with a mining fee of 1 sat/byte, while maintaining a high confidence that the transaction will be included in the next block. That makes a compelling argument to use mainnet for app testing instead of testnet. Most developers I know, including myself, take this approach.
 
 ## Getting Support
 The Bitcoin Cash space is a rapidly moving target. The core concepts in this article won't change much, but the tools, implementations, and libraries are in a constant state of flux. A big part of being a successful full stack developer is injecting yourself into the community, so that you can ride the flow of ever-changing information. Most of the community discourse takes place on [Telegram](https://telegram.org/):
 
-- [BITBOX Devs](https://t.me/bitboxdevs) is a public channel for asking questions around rest.bitcoin.com, BITBOX SDK, and SLP SDK.<br /><br />
+- [bch-js-toolkit](https://t.me/bch_js_toolkit) is a public channel for asking questions and getting support for [bch-js](https://www.npmjs.com/package/@chris.troutner/bch-js), [bch-api](https://github.com/christroutner/bch-api), and the [FullStack.cash](https://fullstack.cash) cloud service.<br /><br />
 
-- [Permissionless Software Foundation](https://t.me/permissionless_software) is a channel for discussing bch-js, bch-api, slp-cli-wallet, and other software sponsored by the [Permissionless Software Foundation](https://psfoundation.cash)<br /><br />
+- [Permissionless Software](https://t.me/permissionless_software) is a channel for discussing PSF inititives like FullStack.cash, its business plan, the PSF token, and other software sponsored by the [Permissionless Software Foundation](https://psfoundation.cash)<br /><br />
 
 - [Simpleledger](https://t.me/simpleledger) is the place to explore and ask questions around SLP tokens.<br /><br />
 
