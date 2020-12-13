@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-ipfs-boilerplate",
-  "description": "IPFS-ready static site",
+  "name": "troutsblog",
+  "description": "troutsblog.com",
   "version": "1.0.0",
   "author": "Chris Troutner <chris.troutner@gmail.com>",
   "dependencies": {
