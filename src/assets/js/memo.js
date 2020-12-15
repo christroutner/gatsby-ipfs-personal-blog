@@ -3,8 +3,14 @@
   and decoding memo.cash protocol messages from BCH transactions.
 */
 
-const BITBOXSDK = require('bitbox-sdk')
-const BITBOX = new BITBOXSDK()
+// const BITBOXSDK = require('bitbox-sdk')
+// const BITBOX = new BITBOXSDK()
+
+// minimal-slp-wallet-web
+const BchWallet = typeof window !== 'undefined' ? window.SlpWallet : null
+
+// bch-message-lib
+const BchMessage = typeof window !== 'undefined' ? window.BchMessage : null
 
 class MEMO {
   constructor (addr) {
@@ -14,6 +20,10 @@ class MEMO {
     // If user specified a hash to use, use that.
     if (addr && addr !== '') {this.addr = addr}
     else { throw new Error(`Must pass a BCH address to Memo constructor.`)}
+
+    this.wallet = new BchWallet()
+    this.bchjs = this.wallet.bchjs
+    this.bchMessage = new BchMessage({bchjs: this.bchjs})
   }
 
   // Checks to see if a new hash been published to the BCH network. If a new
@@ -40,48 +50,16 @@ class MEMO {
     try {
       console.log(`finding latest IPFS hash for address: ${this.addr}...`)
 
-      // Get details associated with this apps BCH address.
-      const details = await BITBOX.Address.details(this.addr)
+      const txs = await this.bchMessage.memo.memoRead(this.addr, 'IPFS UPDATE')
+      // console.log(`txs: ${JSON.stringify(txs, null, 2)}`)
 
-      // Extract the list of transaction IDs involving this address.
-      const TXIDs = details.transactions
-      //console.log(`TXIDs: ${JSON.stringify(TXIDs, null, 2)}`)
+      // If the array is empty, then return false.
+      if(txs.length === 0) return false
 
-      // Loop through each transaction associated with this address.
-      for (let i = 0; i < TXIDs.length; i++) {
-        const thisTXID = TXIDs[i]
+      // The transactions should automatically be sorted by the bchMessage
+      // library. So Just return the hash from the first entry.
+      return txs[0].hash
 
-        const thisTx = await BITBOX.RawTransactions.getRawTransaction(
-          thisTXID,
-          true
-        )
-        //console.log(`thisTx: ${JSON.stringify(thisTx, null, 2)}`)
-
-        // Loop through all the vout entries in this transaction.
-        for (let j = 0; j < thisTx.vout.length; j++) {
-        //for (let j = 0; j < 5; j++) {
-          const thisVout = thisTx.vout[j]
-          //console.log(`thisVout: ${JSON.stringify(thisVout,null,2)}`)
-
-          // Assembly code representation of the transaction.
-          const asm = thisVout.scriptPubKey.asm
-          //console.log(`asm: ${asm}`)
-
-          // Decode the transactions assembly code.
-          const msg = this.decodeTransaction2(asm)
-          //console.log(`msg: ${msg}`)
-          if (msg) {
-
-            // Filter the code to see if it contains an IPFS hash.
-            const hash = this.filterHash(msg)
-            if (hash) {
-              // console.log(`Hash found! ${hash}`)
-              return hash
-            }
-          }
-        }
-      }
-      return false
     } catch (err) {
       console.log(`Could not find IPFS hash in transaction history.`)
       return false
@@ -134,9 +112,9 @@ class MEMO {
   decodeTransaction (asm) {
     try {
       // Decode the assembly into a string.
-      let fromASM = BITBOX.Script.fromASM(asm)
+      let fromASM = this.bchjs.Script.fromASM(asm)
       console.log(`fromASM: ${fromASM.toString()}`)
-      let decodedArr = BITBOX.Script.decode(fromASM)
+      let decodedArr = this.bchjs.Script.decode(fromASM)
       console.log(`decodedArr: ${JSON.stringify(decodedArr)}`)
 
       const decodedStr = decodedArr.toString()
@@ -147,7 +125,7 @@ class MEMO {
 
       if (splitStr[0] === '106') {
         //const msg = decodedArr[2].toString()
-        const msg = BITBOX.Script.decode(decodedArr[2])
+        const msg = this.bchjs.Script.decode(decodedArr[2])
         console.log(`msg: ${msg}`)
       }
 

@@ -28,6 +28,9 @@ class Latest extends React.Component {
 
   async componentDidMount() {
     try {
+      // const wallet = new BchWallet()
+      // const bchMessage = new BchMessage({bchjs: wallet.bchjs})
+
       //console.log(`Hello world!`)
 
       //const price = await BITBOX.Price.current('usd')
@@ -39,10 +42,11 @@ class Latest extends React.Component {
         console.error(
           `Could not find IPFS hash in transactions for address ${ADDR}`
         )
+        return
       }
       console.log(`latest hash: ${_this.hash}`)
 
-      const newUrl = `https://gateway.ipfs.io/ipfs/${_this.hash}`
+      const newUrl = `https://ipfs.io/ipfs/${_this.hash}`
       console.log(`new URL: ${newUrl}`)
 
       //this.state.msg = `new hash: ${_this.hash}`
