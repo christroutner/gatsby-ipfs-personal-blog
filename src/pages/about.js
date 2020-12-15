@@ -60,8 +60,8 @@ const Generic = props => (
                 </StyldLi>
                 <StyldLi>
                   Tor hidden service:{' '}
-                  <a href="http://hyfxmxjhmfnkwxl5.onion/">
-                    http://hyfxmxjhmfnkwxl5.onion/
+                  <a href="http://2noppt2w3u6t4mbd6sjtxyabfwuyyuw6osgap7anl3scarc3oamgbiqd.onion/">
+                    http://2noppt2w3u6t4mbd6sjtxyabfwuyyuw6osgap7anl3scarc3oamgbiqd.onion/
                   </a>
                 </StyldLi>
                 <StyldLi>
