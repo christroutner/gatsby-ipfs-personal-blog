@@ -21,9 +21,13 @@ class MEMO {
     if (addr && addr !== '') {this.addr = addr}
     else { throw new Error(`Must pass a BCH address to Memo constructor.`)}
 
-    this.wallet = new BchWallet()
-    this.bchjs = this.wallet.bchjs
-    this.bchMessage = new BchMessage({bchjs: this.bchjs})
+    if(BchWallet) {
+      this.wallet = new BchWallet()
+      this.bchjs = this.wallet.bchjs
+    }
+
+    if(BchMessage)
+      this.bchMessage = new BchMessage({bchjs: this.bchjs})
   }
 
   // Checks to see if a new hash been published to the BCH network. If a new
