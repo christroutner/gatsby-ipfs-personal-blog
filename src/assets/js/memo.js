@@ -24,10 +24,15 @@ class MEMO {
     if(BchWallet) {
       this.wallet = new BchWallet()
       this.bchjs = this.wallet.bchjs
+    } else {
+      console.error('Could not access minimal-slp-wallet library.')
     }
 
-    if(BchMessage)
+    if(BchMessage) {
       this.bchMessage = new BchMessage({bchjs: this.bchjs})
+    } else {
+      console.error('Could not access bch-message-lib library.')
+    }
   }
 
   // Checks to see if a new hash been published to the BCH network. If a new
