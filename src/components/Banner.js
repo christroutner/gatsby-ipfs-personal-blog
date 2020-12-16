@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 import React from 'react'
+import { Link } from 'gatsby'
 
 const Banner = (props) => (
     <section id="banner" className="major">
@@ -18,7 +19,7 @@ const Banner = (props) => (
                   No government on earth is capable of censoring this website.
                 </p>
                 <ul className="actions">
-                    <li><a href="/about" className="button next scrolly">Build Your Own</a></li>
+                    <li><Link to="/about" className="button next scrolly">Build Your Own</Link></li>
                 </ul>
             </div>
         </div>
