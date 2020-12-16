@@ -1,16 +1,12 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
-
-//import BITBOXSDK from 'bitbox-sdk'
-import Memo from '../assets/js/memo.js'
+import Memo from '../services/memo-hash'
 
 // The BCH address broadcasting IPFS hashes when updates are made, using the
 // memo.cash protocol.
 const ADDR = `bitcoincash:qppngav5s88devt4ypv3vhgj643q06tctcx8fnzewp`
-
-//const BITBOX = new BITBOXSDK()
-const memo = new Memo(ADDR)
+const memo = new Memo({bchAddr: ADDR})
 
 let _this
 
