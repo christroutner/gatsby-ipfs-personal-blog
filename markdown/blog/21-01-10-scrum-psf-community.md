@@ -5,7 +5,7 @@ root: '/blog'
 path: '/blog/scrum-psf-community'
 ---
 
-Over the last year, my professional role has shifted massivly from a developer to a product owner. I still do a lot of coding, I'm spending more and more of my time guiding and mentoring other developers to do the building for me. I re-watched this summary video of Agile Scrum and the role of the Product Owner, in order to brush up on my vocabulary:
+Over the last year, my professional role has shifted massively from a developer to a product owner. I still do a lot of coding, but I'm spending more and more of my time guiding and mentoring other developers to do the building for me. I re-watched this summary video of Agile Scrum and the role of the Product Owner, in order to brush up on my vocabulary:
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/502ILHjX9EE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
 
@@ -38,7 +38,7 @@ What struck me in watching this video was the way in which it could be applied t
 - *Stakeholder* could be replaced with *token holders*, specifically ones with a enough economic skin-in-the-game to matter. The same ones who have gained the right to speak in [the VIP Telegram channel](https://t.me/psf_vip).
 - *Product Owner* describes what I've been doing in my efforts this last year to build [FullStack.cash](https://fullstack.cash), [wallet.fullstack.cash](https://wallet.fullstack.cash), [message.fullstack.cash](https://message.fullstack.cash), and [TorList](https://torlist.cash).
 
-**What PSF really needs to focus on is growing the number of Produce Owners**.
+**What PSF really needs to focus on is growing the number of Product Owners**.
 
 Each square in the PSF roadmap is a product. I'm already at the limit to what one man can do in terms of managing, building, and growing a product. It's my hope that I can work with like-minded individuals to attract more experienced JavaScript developers. Devs who can join the PSF community and become a Product Owner: people who can take on the responsibility of a product, manage devs, and work with the Stakeholders.
 

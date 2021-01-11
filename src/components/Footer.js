@@ -7,7 +7,7 @@ const Footer = (props) => (
         <div className="inner">
             <ul className="icons">
                 <li><a href="https://twitter.com/christroutner" target="_blank" className="icon alt fa-twitter"><span className="label">Twitter</span></a></li>
-                <li><a href="https://memo.cash/profile/1NpYaazpQ26KrMTeFf66zVKy6x9KzcLgTA" target="_blank" className="icon alt fa-money"><span className="label">Memo.cash</span></a></li>
+                <li><a href="https://memo.cash/profile/1G147DZXqKQKACxU1thekUApawSxHnpooa" target="_blank" className="icon alt fa-money"><span className="label">Memo.cash</span></a></li>
                 <li><a href="https://github.com/christroutner/gatsby-ipfs-personal-blog" target="_blank" className="icon alt fa-github"><span className="label">GitHub</span></a></li>
                 <li><a href="https://www.linkedin.com/in/chris-troutner-7332bb8/" target="_blank" className="icon alt fa-linkedin"><span className="label">LinkedIn</span></a></li>
             </ul>
