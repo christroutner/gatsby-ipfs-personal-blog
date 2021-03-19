@@ -43,4 +43,4 @@ I've also started a code repository to continue the work introduced in the video
 - [ipfs-pubsub-prototype](https://github.com/christroutner/ipfs-pubsub-prototype)
 
 ## Comments
-Share your thoughts on this post. Add your comments to [this Member.cash thread](https://member.cash/#thread?root=61d195f5b26d15d9cacc77474811635f31e90c3271114f56d119fac0fb34d4f6&post=61d195f5b26d15d9cacc77474811635f31e90c3271114f56d119fac0fb34d4f6).
+Share your thoughts on this post. Add your comments to [this Member.cash thread](https://member.cash/#thread?root=61d195f5b26d15d9cacc77474811635f31e90c3271114f56d119fac0fb34d4f6&post=61d195f5b26d15d9cacc77474811635f31e90c3271114f56d119fac0fb34d4f6)
