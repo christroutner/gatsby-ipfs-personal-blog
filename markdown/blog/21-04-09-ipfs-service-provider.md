@@ -2,7 +2,7 @@
 date: '2021-04-09'
 title: 'IPFS Service Providers'
 root: '/blog'
-path: '/blog/ipfs-service-proviers'
+path: '/blog/ipfs-service-providers'
 ---
 
 I've been thinking about the best way to summarize the technical milestone I've reached with the research I've been doing on an [IPFS-based API](/blog/ipfs-api). Here's my best attempt:
