@@ -26,7 +26,7 @@ The rest of this article is going to stitch together some of the lessons I've le
 
 ## Crypto IS Open Source
 
-Many developers in the cryptocurrency space reject the notion that there are lessons for the cryptocurrnecy industry to learn from the open source software industry. Their logic is that cryptocurrency is 'money' and somehow that separates it from open source software. Every brilliant developer I've met with this attitude has been incredibly ineffective in their execution.
+Many developers in the cryptocurrency space reject the notion that there are lessons for the cryptocurrency industry to learn from the open source software industry. Their logic is that cryptocurrency is 'money' and somehow that separates it from open source software. Every brilliant developer I've met with this attitude has been incredibly ineffective in their execution.
 
 ![Open Source vs Cryptocurrency Venn Diagram](./images/open-source-crypto-venn-diagram.png)
 
@@ -46,7 +46,7 @@ I'd been struggling to conceptualize a development workflow that would allow for
 
 The solution I had come up with was to create a separate GitHub group for FullStack.cash production software, where I could maintain tight control over the code for 'my' organization. The code in the FullStack group would be forked from the PSF group. So FullStack would be considered the 'downstream', and PSF would be considered the 'upstream'. The 'upstream' repository would have a liberal contribution policy, while the 'downstream' repository would maintain tight QA control and production-ready code.
 
-I was vindicated when reading [Building a Business on Open Source](https://www.linuxfoundation.org/open-source-best-practices/building-a-business-on-open-source/), where he recommended exactly this strategy for differentiating an open source _product_ from an open source _project_.
+I was vindicated recently when reading [Building a Business on Open Source](https://www.linuxfoundation.org/open-source-best-practices/building-a-business-on-open-source/), where he recommended exactly this strategy for differentiating an open source _product_ from an open source _project_.
 
 ## A Circular Economy
 
@@ -109,7 +109,9 @@ With the exception of speculation, none of the items above are bad, but their re
 From a game-theoretic standpoint, it seems to me that the PSF is playing two distictly different games:
 
 - One is a fiat-pegged game. Money comes in, money goes out, based on work done.
-- One is a token-based game with no consideration of fiat. It involves inconsistent, intrinsically motivated work, incentivized by a closed-loop token economy.
+- One is a token-based game with no consideration of fiat. It involves:
+  - Inconsistent, intrinsically motivated work primarily,
+  - Complimented by a little extrinsically motivated work, incentivized by a closed-loop token economy.
 
 The rules of the first game are based on fiat, and are the ones most people are comfortable playing. It's just a business, and it plays by the same rules all businesses play by. Money comes in, money goes out. There are taxes, and legal liability, and intellectual property to worry about. There is overhead and accounting, management, hiring, and all the other things that businesses do when playing the 'let's stay in business' game.
 
