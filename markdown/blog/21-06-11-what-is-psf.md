@@ -26,11 +26,11 @@ The rest of this article is going to stitch together some of the lessons I've le
 
 ## Crypto IS Open Source
 
-Many developers in the cryptocurrency space reject the notion that there are lessons for the cryptocurrency industry to learn from the open source software industry. Their logic is that cryptocurrency is 'money' and somehow that separates it from open source software. Every brilliant developer I've met with this attitude has been incredibly ineffective in their execution.
+Many developers in the cryptocurrency space reject the notion that there are lessons for the cryptocurrency industry to learn from the open source software industry. Their logic is that cryptocurrency is 'money' and somehow that separates it from open source software. Every brilliant developer I've met with this attitude has been incredibly _ineffective_ in their execution.
 
 ![Open Source vs Cryptocurrency Venn Diagram](./images/open-source-crypto-venn-diagram.png)
 
-The above Venn Diagram is how I conceptualize the relationship between the cryptocurrency industry and the open source software industry. Crytocurrency **is** open source software. In fact, it's just a tiny segment of the much larger open source industry. Every lesson gained from the open source industry can be applied to cryptocurency. Some cryptocurrency projects are _also_ trying to be money, and that extra feature may be one of the keys to unlocking sustainable funding of open source infrastructure.
+The above Venn Diagram is how I conceptualize the relationship between the cryptocurrency industry and the open source software industry. Crytocurrency **is** open source software. In fact, it's just a tiny segment of the much larger open source industry. _Every_ lesson gained from the open source industry can be applied to cryptocurency. Some cryptocurrency projects are _also_ trying to be money, and that extra feature may be one of the keys to unlocking sustainable funding of open source infrastructure.
 
 ## A Liberal Contribution Policy
 
