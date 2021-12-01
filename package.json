@@ -31,10 +31,14 @@
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gatsby develop"
+    "start": "gatsby develop",
+    "pub": "node publish.js"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "@psf/bch-js": "^4.20.27",
+    "bch-message-lib": "^1.13.9",
+    "prettier": "^1.19.1",
+    "web3.storage": "^3.5.0"
   },
   "repository": {
     "type": "git",
