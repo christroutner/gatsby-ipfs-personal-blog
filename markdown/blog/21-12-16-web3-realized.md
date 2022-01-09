@@ -13,9 +13,9 @@ If the images appear too small to read the text, click on them to open a larger 
 
 While it looks lot busier, the image above has all all the same features as the simplified Web 3 diagram in the previous blog post. It's easier to describe how all the pieces fit together by walking through the three main layers of infrastructure:
 
-- Front End Software
-- Local Back End Software
 - Global Back End Software
+- Local Back End Software
+- Front End Software
 
 ## Global Back End
 
@@ -35,7 +35,7 @@ In the image, two PSF servers are called out by their [ipfs-coord](https://www.n
 - bch-wallet-service-US-PDX
 - bch-wallet-service-west-coast-canada
 
-There are more than these two serves on the network, and more are will be added in the future thanks to [PSF bounties](https://github.com/Permissionless-Software-Foundation/bounties). Because these back end servers are interchangeable, the software higher up in the stack can choose one-of-many in order to achieve its goals. They all connect to a common 'bus', which is a subnetwork on IPFS, created by the [ipfs-coord library](https://www.npmjs.com/package/ipfs-coord).
+There are more than these two servers on the network, and more will be added in the future thanks to [PSF bounties](https://github.com/Permissionless-Software-Foundation/bounties). Because these back end servers are interchangeable, the software higher up in the stack can choose one-of-many in order to achieve its goals. They all connect to a common 'bus', which is a subnetwork on IPFS, created by the [ipfs-coord library](https://www.npmjs.com/package/ipfs-coord).
 
 The JSON RPC over IPFS interface lowers costs, improves decentralization, and improves reliability.
 
@@ -76,4 +76,4 @@ The phone app represents the 'Casual User' use case. An Android APK file will be
 
 [gatsby-ipfs-web-wallet](https://github.com/Permissionless-Software-Foundation/gatsby-ipfs-web-wallet) will soon be getting renamed to `gatsby-ipfs-bch-wallet`. This will be our IPFS-first wallet. The concept of IPFS-first is taken from the 'mobile-first' design philosophy, which took the emphasis off of desktops and moved it to smart phones. In the same way, IPFS-first takes the emphasis off the centralized REST API over HTTP, and moves it to the decentralized JSON RPC over IPFS.
 
-This web wallet will be loaded from Filecoin, and be accessible from any IPFS-gateway, just like this blog. It will load an IPFS node within the browser-based app, and connect to an instance of `ipfs-bch-wallet-serverice` directly. Because the app is so self-contained within IPFS, it will be difficult if not impossible to censor. It will be slower than [wallet.fullstack.cash](https://wallet.fullstack.cash), but it should provide wallet accessibility to people in repressive countries that actively try to block their citizens from accessing the blockchain. This will cator to the Censored User use case.
+This web wallet will be loaded from Filecoin, and be accessible from any IPFS-gateway, just like this blognp. It will load an IPFS node within the browser-based app, and connect to an instance of `ipfs-bch-wallet-serverice` directly. Because the app is so self-contained within IPFS, it will be difficult if not impossible to censor. It will be slower than [wallet.fullstack.cash](https://wallet.fullstack.cash), but it should provide wallet accessibility to people in repressive countries that actively try to block their citizens from accessing the blockchain. This will cator to the Censored User use case.
