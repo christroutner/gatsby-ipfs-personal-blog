@@ -25,7 +25,7 @@ class Memo {
     }
 
     if (BchMessage) {
-      this.bchMessage = new BchMessage({ bchjs: this.bchjs })
+      this.bchMessage = new BchMessage({ wallet: this.wallet })
     } else {
       console.error('Could not access bch-message-lib library.')
     }
@@ -37,7 +37,10 @@ class Memo {
     try {
       console.log(`finding latest IPFS hash for address: ${this.bchAddr}...`)
 
-      const txs = await this.bchMessage.memo.memoRead(this.bchAddr, 'IPFS UPDATE')
+      const txs = await this.bchMessage.memo.memoRead(
+        this.bchAddr,
+        'IPFS UPDATE'
+      )
       // console.log(`txs: ${JSON.stringify(txs, null, 2)}`)
 
       // If the array is empty, then return false.

@@ -5,22 +5,22 @@ import PropTypes from 'prop-types'
 // window && typeof window !== 'undefined' && window.test = 'testing'
 // import Logo from './images/loader.gif'
 
-export default function HTML (props) {
+export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-        <meta charSet='utf-8' />
-        <meta httpEquiv='x-ua-compatible' content='ie=edge' />
+        <meta charSet="utf-8" />
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
-          name='viewport'
-          content='width=device-width, initial-scale=1, shrink-to-fit=no'
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
 
         {/* minimal-slp-wallet-web */}
-        <script src='https://unpkg.com/minimal-slp-wallet-web' />
+        <script src="https://unpkg.com/minimal-slp-wallet" />
 
         {/* bch-message-lib */}
-        <script src='https://unpkg.com/bch-message-lib' />
+        <script src="https://unpkg.com/bch-message-lib" />
 
         {props.headComponents}
       </head>
@@ -28,8 +28,8 @@ export default function HTML (props) {
         {props.preBodyComponents}
         <div>
           <div
-            key='body'
-            id='___gatsby'
+            key="body"
+            id="___gatsby"
             dangerouslySetInnerHTML={{ __html: props.body }}
           />
         </div>
@@ -46,5 +46,5 @@ HTML.propTypes = {
   bodyAttributes: PropTypes.object,
   preBodyComponents: PropTypes.array,
   body: PropTypes.string,
-  postBodyComponents: PropTypes.array
+  postBodyComponents: PropTypes.array,
 }
