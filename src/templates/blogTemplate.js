@@ -29,7 +29,7 @@ export default function Template({
       </Helmet>
 
       <BlogPostContainer className="blog-post-container">
-        <div className="blog-post">
+        <div className="blog-post" style={{ padding: '25px' }}>
           <h1>{frontmatter.title}</h1>
           <h2>{frontmatter.date}</h2>
           <CheckUpdates />

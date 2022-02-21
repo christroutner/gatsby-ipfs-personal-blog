@@ -56,6 +56,7 @@ async function publish() {
     // Broadcast the transaction to the network.
     const txid = await wallet.ar.sendTx(hex)
     console.log(`BCH blockchain updated with new CID. TXID: ${txid}`)
+    console.log(`https://blockchair.com/bitcoin-cash/transaction/${txid}`)
   } catch (err) {
     console.error(err)
   }

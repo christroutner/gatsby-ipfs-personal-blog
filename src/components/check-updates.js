@@ -41,9 +41,14 @@ class CheckForUpdates extends React.Component {
       }
       console.log(`latest IPFS hash: ${hash}`)
 
-      this.setState({
-        ipfsHashLink: `https://ipfs.io/ipfs/${hash}${path}`,
-      })
+      // Display the component if the IPFS hash is different from the one in the
+      // URL bar.
+      const url = window.location.href
+      if (!url.includes(hash)) {
+        this.setState({
+          ipfsHashLink: `https://ipfs.io/ipfs/${hash}${path}`,
+        })
+      }
     } catch (err) {
       console.log('Error in getUpdatedUrl(): ', err)
     }
