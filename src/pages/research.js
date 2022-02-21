@@ -149,6 +149,22 @@ faqContent.push(() => {
   )
 })
 
+faqTitles.push('Decatur Island')
+faqContent.push(() => {
+  return (
+    <div>
+      <ul>
+        <li>
+          <a href="/research/decatur/governance-faq">DSCA Governance FAQ</a>
+        </li>
+        <li>
+          <a href="/research/decatur/public-docs">DSCA Public Documents</a>
+        </li>
+      </ul>
+    </div>
+  )
+})
+
 const renderFaqs = () => {
   return faqTitles.map((title, index) => {
     const trigger1 = `⊳ ${title}`
