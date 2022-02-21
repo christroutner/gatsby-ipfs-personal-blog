@@ -10,6 +10,7 @@ const FILE_PATH = './public'
 
 const { Web3Storage, getFilesFromPath } = require('web3.storage')
 const BCHJS = require('@psf/bch-js')
+const BchWallet = require('minimal-slp-wallet/index')
 const BchMessageLib = require('bch-message-lib/index')
 const fs = require('fs')
 
@@ -37,15 +38,23 @@ async function publish() {
 
     // Upload the files to Filecoin.
     const cid = await uploadToFilecoin(fileAry, filecoinToken)
+    // const cid = 'bafybeibgekzxiqr7irgs26g5pw5sv6xtvfiihccyagpmn7anzl6ffb2xc4'
     console.log('Content added with CID:', cid)
 
     // Initialize libraries for working with BCH blockchain.
-    const bchjs = new BCHJS()
-    const bchMsg = new BchMessageLib({ bchjs })
+    // const bchjs = new BCHJS()
+    const wallet = new BchWallet(troutWif, {
+      interface: 'consumer-api',
+    })
+    await wallet.walletInfoPromise
+    const bchMsg = new BchMessageLib({ wallet })
 
     // Publish the CID to the BCH blockchain.
-    const hex = await bchMsg.memo.memoPush(cid, troutWif, 'IPFS UPDATE ')
-    const txid = await bchjs.RawTransactions.sendRawTransaction(hex)
+    const hex = await bchMsg.memo.memoPush(cid, 'IPFS UPDATE')
+
+    // const txid = await bchjs.RawTransactions.sendRawTransaction(hex)
+    // Broadcast the transaction to the network.
+    const txid = await wallet.ar.sendTx(hex)
     console.log(`BCH blockchain updated with new CID. TXID: ${txid}`)
   } catch (err) {
     console.error(err)

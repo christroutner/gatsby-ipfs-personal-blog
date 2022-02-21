@@ -18,7 +18,9 @@ class Memo {
     else this.bchAddr = config.bchAddr
 
     if (BchWallet) {
-      this.wallet = new BchWallet()
+      this.wallet = new BchWallet(undefined, {
+        interface: 'consumer-api',
+      })
       this.bchjs = this.wallet.bchjs
     } else {
       console.error('Could not access minimal-slp-wallet library.')
@@ -41,7 +43,7 @@ class Memo {
         this.bchAddr,
         'IPFS UPDATE'
       )
-      // console.log(`txs: ${JSON.stringify(txs, null, 2)}`)
+      console.log(`txs: ${JSON.stringify(txs, null, 2)}`)
 
       // If the array is empty, then return false.
       if (txs.length === 0) return false

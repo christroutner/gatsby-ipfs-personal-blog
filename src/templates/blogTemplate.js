@@ -5,11 +5,12 @@
   This template is used to render the post.
 */
 
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
+import CheckUpdates from '../components/check-updates'
 
 const BlogPostContainer = styled.div`
   padding: 25px;
@@ -31,6 +32,7 @@ export default function Template({
         <div className="blog-post">
           <h1>{frontmatter.title}</h1>
           <h2>{frontmatter.date}</h2>
+          <CheckUpdates />
           <div
             className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}

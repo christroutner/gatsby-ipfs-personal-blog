@@ -37,6 +37,7 @@
   "devDependencies": {
     "@psf/bch-js": "5.3.2",
     "bch-message-lib": "2.1.2",
+    "minimal-slp-wallet": "4.4.1",
     "prettier": "^1.19.1",
     "web3.storage": "^3.5.0"
   },
