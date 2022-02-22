@@ -8,6 +8,9 @@ path: '/research/decatur/governance-faq'
 ## Definitions
 
 - BOD - Board of Directors
+- CC&Rs - Covenants, Conditions & Restrictions
+
+All documents are available [here](/research/decatur/public-docs/).
 
 ## Governance - Frequently Asked Questions
 
