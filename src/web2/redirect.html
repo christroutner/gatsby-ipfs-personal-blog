@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<!--
+  This HTML creates a web page that retrieves the latest copy of an IPFS-based
+  Gatsby website that was uploaded to Filecoin. It retrieves the hash for the
+  site from the BCH blockchain, then navigates the browser to that site, which
+  is served by the Filecoin blockchain.
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Redirect to IPFS Hash</title>
+    <link rel="icon favicon" href="favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Redirecting to the IPFS site...</h1>
+    <p>
+      This page is simply a placeholder for a web 2.0 domain. It will forward
+      you to the web 3.0 web page in a few seconds.
+    </p>
+    <p>
+      Retrieving latest copy of the site from the BCH blockchain...
+    </p>
+    <p id="bchStatus"></p>
+    <p></p>
+  </body>
+
+  <script src="https://unpkg.com/minimal-slp-wallet"></script>
+  <script src="https://unpkg.com/bch-message-lib"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+
+        const wallet = new SlpWallet(undefined, {
+          noUpdate: true,
+          interface: "consumer-api"
+        });
+        // await wallet.walletInfoPromise;
+        // console.log("wallet info: ", wallet.walletInfo);
+        // console.log("BchMessage: ", BchMessage);
+
+        const bchMessage = new BchMessage({ wallet });
+        // console.log("bchMessage: ", bchMessage);
+
+        const bchAddr =
+          "bitcoincash:qppngav5s88devt4ypv3vhgj643q06tctcx8fnzewp";
+        // const msg = await bchMessage.memo.memoRead(bchAddr, "IPFS UPDATE");
+        const msg = await bchMessage.memo.memoRead(bchAddr, "IPFS UPDATE");
+
+        let targetHash = "";
+
+        // Loop through all the messages
+        for (let i = 0; i < msg.length; i++) {
+          const thisMsg = msg[i];
+
+          const hash = thisMsg.subject;
+          const sender = thisMsg.sender;
+
+          if (sender === bchAddr) {
+            if (hash.includes("bafy")) {
+              console.log(`hash: ${hash}`);
+              targetHash = hash;
+              break;
+            }
+          }
+        }
+
+        const url = `https://${targetHash}.ipfs.dweb.link/`;
+
+        const statusDOM = document.getElementById("bchStatus");
+        if (targetHash) {
+          statusDOM.innerHTML = `Hash on BCH blockchain found: ${targetHash}
+          Redirecting to...<br /><br />
+          <a href="${url}">${url}</a>`;
+
+          window.location.href = url;
+        } else {
+          statusDOM.innerHTML = `A Filecoin CID hash could not be found. This app may be having trouble reaching the BCH blockchain.`;
+        }
+      } catch (err) {
+        console.error("Error in web app: ", err);
+
+        const statusDOM = document.getElementById("bchStatus");
+        statusDOM.innerHTML = `<b>Error</b>: ${err.message}`
+      }
+    });
+  </script>
+</html>
